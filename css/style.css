@@ -121,13 +121,81 @@ body{
 /* CONF DOS LINKS INTERNOS*/
 a[id="mapa"],
 a[id="sobre"],
-a[id="equipe"]{
+a[id="equipe"],
+a[id="github"]{
     margin-top: -70px;
     position: absolute;
 }
 
 
+.teste {
+    width: 800px;
+    position: absolute;
+    margin-top: -520px;
+    margin-left: 100px;
+    font-family: "open-sans.light";
+    font-size: 100px;
+    text-align: center;    
+    color: #fff;
 
+}
+
+
+<!-- 
+.teste > input[type="text"]{
+width: 500px;
+height: 50px;
+border-radius: 100px;
+background: none;
+font-size: 30px;
+text-align: center;
+border: solid 2px;
+}
+
+.teste > input[type="button"]{
+padding-left: 40px;
+padding-right: 40px;
+height: 50px;
+border-radius: 100px;
+background: none;
+font-size: 30px;
+text-align: center;
+border: solid 2px;
+}
+
+.teste > select{
+width: 500px;    
+height: 50px;
+border-radius: 100px;
+background: none;
+font-size: 30px;
+text-align: center;
+border: solid 2px;
+}
+-->
+
+/* CONF DOS PADDING INICIAL DAS AREAS */
+#sobre-projeto, 
+#sobre-equipe, 
+#mapa-brasil{
+    padding-top: 30px;
+}
+
+
+/* CONF DOS TITULOS DAS AREAS */
+#titulo{
+    text-align: center;
+    font-family: "open-sans.light";
+    font-size: 35px;
+    padding-bottom: 75px;
+}
+
+
+.sub-titulo {
+    font-size: 28px;
+}
+
+/* FIM TITULOS */
 
 
 /* CONF DA AREA SOBRE A EQUIPE */
@@ -155,77 +223,10 @@ a[id="equipe"]{
 
 
 
-
-
-.teste {
-    width: 800px;
-    position: absolute;
-    margin-top: -520px;
-    margin-left: 100px;
-    font-family: "open-sans.light";
-    font-size: 100px;
-    text-align: center;    
-    color: #fff;
-    
-}
-
-
-<!-- 
-.teste > input[type="text"]{
-    width: 500px;
-    height: 50px;
-    border-radius: 100px;
-    background: none;
-    font-size: 30px;
-    text-align: center;
-    border: solid 2px;
-}
-
-.teste > input[type="button"]{
-    padding-left: 40px;
-    padding-right: 40px;
-    height: 50px;
-    border-radius: 100px;
-    background: none;
-    font-size: 30px;
-    text-align: center;
-    border: solid 2px;
-}
-
-.teste > select{
-    width: 500px;    
-    height: 50px;
-    border-radius: 100px;
-    background: none;
-    font-size: 30px;
-    text-align: center;
-    border: solid 2px;
-}
--->
-
-/* CONF DOS PADDING INICIAL DAS AREAS */
-#sobre-projeto, 
-#sobre-equipe, 
-#mapa-brasil{
-    padding-top: 30px;
-}
-
-
-/* CONF DOS TITULOS DAS AREAS */
-#titulo{
-    text-align: center;
-    font-family: "open-sans.light";
-    font-size: 35px;
-    padding-bottom: 75px;
-}
-
-
-.sub-titulo {
-    font-size: 28px;
-}
-
+/* CONF DO RODA PÉ*/
 .local-rodape {
     height: 130px;
+    margin: 0 auto;
     background: #3e3e3e; /* Old browsers */
     background: -moz-linear-gradient(top,  #3e3e3e 0%, #565656 23%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3e3e3e), color-stop(23%,#565656)); /* Chrome,Safari4+ */
@@ -235,4 +236,75 @@ a[id="equipe"]{
     background: linear-gradient(to bottom,  #3e3e3e 0%,#565656 23%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e3e3e', endColorstr='#565656',GradientType=0 ); /* IE6-9 */
 
+}
+
+#rodape{
+    margin: 0 auto;
+    color: #fff;
+    padding-top: 25px;
+    text-align: center;
+}
+#rodape > img{
+    height: 50px;    
+    margin: 0 auto;
+}
+
+#rodape > p{
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+
+
+/* FIM RODA PÉ*/
+
+
+
+
+
+
+.local-github {
+    height: 600px;
+    background-color: #3aacf4;
+    color: #fff;
+}
+
+#github{
+    padding-top: 100px;
+}
+
+#github-titulo{
+    font-size: 47px;
+    position: absolute;
+    padding-top: 50px;
+}
+
+
+#github-sub-titulo{
+    font-size: 26px;
+    position: absolute;
+    padding-top: 130px;
+}
+
+#github-sub-titulo > b{
+    font-size: 34px;
+}
+
+#github-button{
+    position: absolute;
+    padding-top: 260px;
+    padding-left: 200px;
+}
+
+#github-button > a > button{
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 25px;
+}
+
+#icon-github{
+    position: absolute;
+    height: 400px;
+    padding-left: 650px;
+    padding-top: 20px;
 }
