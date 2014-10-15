@@ -13,7 +13,7 @@ Professor: **José Barros**
 
 Alunos:
 
- - Fatinha Sousa
+ - Fatima de Sousa
  - [Sérgio Diniz](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K8153626U7)
 
 
