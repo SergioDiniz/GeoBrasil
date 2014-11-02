@@ -7,7 +7,9 @@
 package Gerenciador;
 
 import Classes.Estado;
+import Classes.Municipio;
 import InterfacesDao.EstadoDao;
+import InterfacesDao.MunicipioDao;
 import java.sql.SQLException;
 
 /**
@@ -19,6 +21,11 @@ public class Gerenciador {
     public Estado pesquisarEstado(String nomeEstado) throws SQLException{
         EstadoDao estadoD = new EstadoDao();
         return estadoD.pesquisarEstado(nomeEstado);
+    }
+    
+    public Municipio pesquisarMunicipio(String municipio, String estado) throws SQLException{
+        MunicipioDao municipioD = new MunicipioDao();
+        return municipioD.pesquisarMuncipio(municipio, estado);
     }
     
 }

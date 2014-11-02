@@ -6,17 +6,17 @@
 
 package InterfacesDao;
 
-import Classes.Estado;
 import Classes.Municipio;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
  *
  * @author SergioD
  */
-public interface EstadoDaoIT {
+public interface MunicipioDaoIT {
     
-    public Estado pesquisarEstado(String nome);
+    public Municipio pesquisarMuncipio(String municipio, String estado);
+    
+    
     
 }

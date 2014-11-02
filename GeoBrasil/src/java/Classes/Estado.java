@@ -6,12 +6,16 @@
 
 package Classes;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author SergioD
  */
 public class Estado extends Geometria{
 
+    private ArrayList<Municipio> municipios = new ArrayList();
+    
     public Estado() {
     }
 
@@ -19,5 +23,17 @@ public class Estado extends Geometria{
         super(nome, the_geom, SVG);
     }
 
+
+    public ArrayList<Municipio> getMunicipios() {
+        return municipios;
+    }
+
+    public void setMunicipios(ArrayList<Municipio> municipios) {
+        this.municipios = municipios;
+    }
+
+    public void add(Municipio municipio){
+        this.municipios.add(municipio);
+    }
 
 }
