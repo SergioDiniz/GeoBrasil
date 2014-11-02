@@ -15,8 +15,8 @@ public class Microrregiao extends Geometria{
     public Microrregiao() {
     }
 
-    public Microrregiao(String nome, String the_geom, String SVG) {
-        super(nome, the_geom, SVG);
+    public Microrregiao(String nome, String the_geom, String SVG, String viewBox) {
+        super(nome, the_geom, SVG, viewBox);
     }
 
     

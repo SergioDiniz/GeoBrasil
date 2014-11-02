@@ -19,9 +19,10 @@ public class Estado extends Geometria{
     public Estado() {
     }
 
-    public Estado(String nome, String the_geom, String SVG) {
-        super(nome, the_geom, SVG);
+    public Estado(String nome, String the_geom, String SVG, String viewBox) {
+        super(nome, the_geom, SVG, viewBox);
     }
+
 
 
     public ArrayList<Municipio> getMunicipios() {

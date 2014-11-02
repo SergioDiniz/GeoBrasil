@@ -10,6 +10,7 @@ import Classes.Estado;
 import Classes.Municipio;
 import InterfacesDao.EstadoDao;
 import InterfacesDao.MunicipioDao;
+import InterfacesDao.ViewBoxDao;
 import java.sql.SQLException;
 
 /**
@@ -26,6 +27,11 @@ public class Gerenciador {
     public Municipio pesquisarMunicipio(String municipio, String estado) throws SQLException{
         MunicipioDao municipioD = new MunicipioDao();
         return municipioD.pesquisarMuncipio(municipio, estado);
+    }
+    
+    public String getViewBoxEstado(String estado) throws SQLException{
+        ViewBoxDao viewBox = new ViewBoxDao();
+        return viewBox.getViewBoxEstado(estado);
     }
     
 }

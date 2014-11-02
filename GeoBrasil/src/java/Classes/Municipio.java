@@ -15,10 +15,9 @@ public class Municipio extends Geometria{
     public Municipio() {
     }
 
-    public Municipio(String nome, String the_geom, String SVG) {
-        super(nome, the_geom, SVG);
+    public Municipio(String nome, String the_geom, String SVG, String viewBox) {
+        super(nome, the_geom, SVG, viewBox);
     }
-
 
 
 }

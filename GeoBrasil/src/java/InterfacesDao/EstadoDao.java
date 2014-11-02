@@ -51,6 +51,9 @@ public class EstadoDao implements EstadoDaoIT{
             result.close();
             stat.close();
             
+            estado.setMunicipios(pesquisarTodosOsMunicipiosDentroDeEstado(nome));
+            estado.setViewBox(new ViewBoxDao().getViewBoxEstado(nome)); 
+            
         } catch (SQLException ex) {
             System.out.println("ERRO " + ex.getMessage());
         }
@@ -60,7 +63,7 @@ public class EstadoDao implements EstadoDaoIT{
     
     
     public ArrayList<Municipio> pesquisarTodosOsMunicipiosDentroDeEstado(String estado) throws SQLException{
-        String sql = "select m.nome, m.the_geom, ST_AsSVG(m.the_geom) as SVG from municipio m, estado e \n" +
+        String sql = "select m.nome, m.the_geom, ST_AsSVG(m.the_geom) as SVG from municipio m, estado e " +
                      "where ST_Within(m.the_geom, e.the_geom) and e.uf ilike ?";
         
         ArrayList<Municipio> municipios = new ArrayList();

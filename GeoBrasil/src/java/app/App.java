@@ -21,12 +21,10 @@ import java.util.ArrayList;
  */
 public class App {
     public static void main (String[] args) throws SQLException{     
-        EstadoDao ed = new EstadoDao();
-        ArrayList<Municipio> municipios = new ArrayList();
+        Gerenciador g = new Gerenciador();
+        Estado e = g.pesquisarEstado("pb");
         
-        municipios = ed.pesquisarTodosOsMunicipiosDentroDeEstado("pb");
-        
-        System.out.println(municipios.get(1).getNome());
+        System.out.println(e.getNome() + " \n" + e.getViewBox() + "\n" + e.getMunicipios().get(1).getNome());
         
     }
 }
