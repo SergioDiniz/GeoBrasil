@@ -14,13 +14,16 @@ public class Geometria {
     
     private String nome;
     private String the_geom;
+    private String SVG;
 
     public Geometria(){}
-    
-    public Geometria(String nome, String the_geom) {
+
+    public Geometria(String nome, String the_geom, String SVG) {
         this.nome = nome;
         this.the_geom = the_geom;
+        this.SVG = SVG;
     }
+    
 
     public String getNome() {
         return nome;
@@ -38,7 +41,14 @@ public class Geometria {
         this.the_geom = the_geom;
     }
 
- 
-    
+    public String getSVG() {
+        return SVG;
+    }
+
+    public void setSVG(String SVG) {
+        this.SVG = SVG;
+    }
+
+
     
 }

@@ -15,8 +15,10 @@ public class Mesorregiao extends Geometria{
     public Mesorregiao() {
     }
 
-    public Mesorregiao(String nome, String the_geom) {
-        super(nome, the_geom);
+    public Mesorregiao(String nome, String the_geom, String SVG) {
+        super(nome, the_geom, SVG);
     }
+
+
     
 }

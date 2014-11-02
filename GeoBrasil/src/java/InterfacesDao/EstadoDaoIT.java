@@ -4,21 +4,16 @@
  * and open the template in the editor.
  */
 
-package Classes;
+package InterfacesDao;
+
+import Classes.Estado;
 
 /**
  *
  * @author SergioD
  */
-public class Municipio extends Geometria{
-
-    public Municipio() {
-    }
-
-    public Municipio(String nome, String the_geom, String SVG) {
-        super(nome, the_geom, SVG);
-    }
-
-
-
+public interface EstadoDaoIT {
+    
+    public Estado pesquisarEstado(String nome);
+    
 }
