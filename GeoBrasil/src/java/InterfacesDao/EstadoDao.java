@@ -35,7 +35,7 @@ public class EstadoDao implements EstadoDaoIT{
     @Override
     public Estado pesquisarEstado(String nome) {
         // Consulta no bando BDNC que retorna a sigla, the_geom e o SVG de um estado
-        String sql = "select uf, the_geom, ST_AsSVG(the_geom) as SVG from estado where uf ilike ?";
+        String sql = "select estado, the_geom, ST_AsSVG(the_geom) as SVG from estado where estado ilike ?";
         Estado estado = new Estado();
         
         try {
@@ -65,7 +65,7 @@ public class EstadoDao implements EstadoDaoIT{
     
     public ArrayList<Municipio> pesquisarTodosOsMunicipiosDentroDeEstado(String estado) throws SQLException{
         String sql = "select m.nome, m.the_geom, ST_AsSVG(m.the_geom) as SVG from municipio m, estado e " +
-                     "where ST_Within(m.the_geom, e.the_geom) and e.uf ilike ?";
+                     "where ST_Within(m.the_geom, e.the_geom) and e.estado ilike ?";
         
         ArrayList<Municipio> municipios = new ArrayList();
         

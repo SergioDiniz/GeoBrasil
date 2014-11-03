@@ -36,8 +36,8 @@ public class MunicipioDao implements MunicipioDaoIT{
         this.estado = municipioEstado[1];
         
         Municipio muni = new Municipio();
-        String sql = "select m.nome, m.the_geom, ST_AsSVG(m.the_geom) as SVG from municipio m, estado e \n" +
-                    "where ST_Within(m.the_geom, e.the_geom) and m.nome ilike ? and e.uf ilike ?";
+        String sql = "select m.nome, m.the_geom, ST_AsSVG(m.the_geom) as SVG from municipio m, estado e\n" +
+                        "where ST_Within(m.the_geom, e.the_geom) and m.nome ilike ? and e.estado ilike ?";
         try {
             PreparedStatement stat = con.prepareStatement(sql);
             stat.setString(1, municipio);

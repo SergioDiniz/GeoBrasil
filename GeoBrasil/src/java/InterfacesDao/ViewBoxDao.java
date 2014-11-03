@@ -41,7 +41,7 @@ public class ViewBoxDao {
                     "CAST(ST_ymax(box2d(ST_Envelope(m.the_geom))) * -1 as varchar) || ' ' || \n" +
                     "CAST(ST_xmax(box2d(ST_Envelope(m.the_geom))) - ST_xmin(box2d(ST_Envelope(m.the_geom))) as varchar) || ' ' || \n" +
                     "CAST(ST_ymax(box2d(ST_Envelope(m.the_geom))) - ST_ymin(box2d(ST_Envelope(m.the_geom))) as varchar) AS viewBox \n" +
-                    "FROM municipio m, estado e WHERE nome ilike ? and e.uf ilike ? group by m.the_geom ";
+                    "FROM municipio m, estado e WHERE nome ilike ? and e.estado ilike ? group by m.the_geom ";
         String viewBox = null;
         Connection con = new Conexao().criarConexao();
         try{

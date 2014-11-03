@@ -24,7 +24,9 @@ public class App {
     public static void main (String[] args) throws SQLException{     
         Gerenciador g = new Gerenciador();
         MunicipioDao md = new MunicipioDao();
-        Municipio m = new Municipio();
+        
+        
+        
         
         System.out.println(md.getMunicipio("joão pessoa - pb"));
 
