@@ -25,12 +25,9 @@ import xml.GerenciadorCoordenada;
  */
 public class App {
     public static void main (String[] args) throws SQLException{     
+        Gerenciador g = new Gerenciador();
         
-        GerenciadorCoordenada gerenciador = new GerenciadorCoordenada();
+        System.out.println(g.pesquisarRegiao("nordeste").getEstados().get(1).getNome());
         
-        Coordenadas coordenadas = gerenciador.buscarCoordenada("Cajazeiras");
-        
-        System.out.println("Latitude: " +coordenadas.getLatitude());
-        System.out.println("Longitude: " +coordenadas.getLongitude());
     }
 }

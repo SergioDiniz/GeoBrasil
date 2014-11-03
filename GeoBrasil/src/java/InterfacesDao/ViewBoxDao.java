@@ -116,7 +116,7 @@ public class ViewBoxDao {
                     "CAST(ST_ymax(box2d(ST_Envelope(the_geom))) * -1 as varchar) || ' ' || " +
                     "CAST(ST_xmax(box2d(ST_Envelope(the_geom))) - ST_xmin(box2d(ST_Envelope(the_geom))) as varchar) || ' ' || " +
                     "CAST(ST_ymax(box2d(ST_Envelope(the_geom))) - ST_ymin(box2d(ST_Envelope(the_geom))) as varchar) AS viewBox " +
-                    "FROM estado WHERE uf ilike ?";
+                    "FROM estado WHERE estado ilike ?";
         String viewBox = null;
         Connection con = new Conexao().criarConexao();
         try{
@@ -133,5 +133,28 @@ public class ViewBoxDao {
         return viewBox;
     }
     
+    
+    public String getViewBoxRegiao(String regiao) throws SQLException{
+        String sql = "SELECT CAST(ST_xmin(box2d(ST_Envelope(the_geom))) as varchar) || ' ' || " +
+                    "CAST(ST_ymax(box2d(ST_Envelope(the_geom))) * -1 as varchar) || ' ' || " +
+                    "CAST(ST_xmax(box2d(ST_Envelope(the_geom))) - ST_xmin(box2d(ST_Envelope(the_geom))) as varchar) || ' ' || " +
+                    "CAST(ST_ymax(box2d(ST_Envelope(the_geom))) - ST_ymin(box2d(ST_Envelope(the_geom))) as varchar) AS viewBox " +
+                    "FROM regiao WHERE nome ilike ?";
+        String viewBox = null;
+        Connection con = new Conexao().criarConexao();
+        try{
+           PreparedStatement stat = con.prepareStatement(sql);
+           stat.setString(1, regiao);
+
+           ResultSet result = stat.executeQuery();
+           result.next();
+           
+           viewBox = result.getString(1);
+           result.close();
+        }finally{
+            con.close();
+        }
+        return viewBox;
+    }    
     
 }

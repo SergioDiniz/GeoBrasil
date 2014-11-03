@@ -10,10 +10,12 @@ import Classes.Estado;
 import Classes.Mesorregiao;
 import Classes.Microrregiao;
 import Classes.Municipio;
+import Classes.Regiao;
 import InterfacesDao.EstadoDao;
 import InterfacesDao.MesorregiaoDao;
 import InterfacesDao.MicrorregiaoDao;
 import InterfacesDao.MunicipioDao;
+import InterfacesDao.RegiaoDao;
 import InterfacesDao.ViewBoxDao;
 import java.sql.SQLException;
 
@@ -44,6 +46,11 @@ public class Gerenciador {
         return microrregiaoDao.buscarMicrorregiao(microrregiao_Estado);
     }
     
+    public Regiao pesquisarRegiao(String regiao) throws SQLException{
+        RegiaoDao r = new RegiaoDao();
+        return r.buscarRegiao(regiao);
+    } 
+        
     
     public String getViewBox(String geometria) throws SQLException{
         ViewBoxDao viewBox = new ViewBoxDao();
@@ -65,4 +72,8 @@ public class Gerenciador {
         return viewBox.getViewBoxMesorregiao(mesorregiao, estado);
     }    
     
+    public String getViewBoxRegiao(String regiao) throws SQLException{
+        ViewBoxDao viewBox = new ViewBoxDao();
+        return viewBox.getViewBoxRegiao(regiao);
+    }        
 }
