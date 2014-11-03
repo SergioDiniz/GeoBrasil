@@ -34,6 +34,32 @@ public class ViewBoxDao {
         }
         return viewBox;
     }
+
+
+    public String getViewBoxMunicipio(String municipio, String estado) throws SQLException{
+        String sql = "SELECT CAST(ST_xmin(box2d(ST_Envelope(m.the_geom))) as varchar) || ' ' ||\n" +
+                    "CAST(ST_ymax(box2d(ST_Envelope(m.the_geom))) * -1 as varchar) || ' ' || \n" +
+                    "CAST(ST_xmax(box2d(ST_Envelope(m.the_geom))) - ST_xmin(box2d(ST_Envelope(m.the_geom))) as varchar) || ' ' || \n" +
+                    "CAST(ST_ymax(box2d(ST_Envelope(m.the_geom))) - ST_ymin(box2d(ST_Envelope(m.the_geom))) as varchar) AS viewBox \n" +
+                    "FROM municipio m, estado e WHERE nome ilike ? and e.uf ilike ? group by m.the_geom ";
+        String viewBox = null;
+        Connection con = new Conexao().criarConexao();
+        try{
+           PreparedStatement stat = con.prepareStatement(sql);
+           stat.setString(1, municipio);
+           stat.setString(2, estado);
+           
+           ResultSet resut = stat.executeQuery();
+           resut.next();
+           
+           viewBox = resut.getString(1);
+           stat.close();
+        }finally{
+            con.close();
+        }
+        return viewBox;
+    }    
+    
     
     public String getViewBoxEstado(String estado) throws SQLException{
         String sql = "SELECT CAST(ST_xmin(box2d(ST_Envelope(the_geom))) as varchar) || ' ' || " +

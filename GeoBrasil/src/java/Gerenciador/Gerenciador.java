@@ -24,14 +24,19 @@ public class Gerenciador {
         return estadoD.pesquisarEstado(nomeEstado);
     }
     
-    public Municipio pesquisarMunicipio(String municipio, String estado) throws SQLException{
+    public Municipio pesquisarMunicipio(String municipio_Estado) throws SQLException{
         MunicipioDao municipioD = new MunicipioDao();
-        return municipioD.pesquisarMuncipio(municipio, estado);
+        return municipioD.pesquisarMuncipio(municipio_Estado);
     }
     
     public String getViewBoxEstado(String estado) throws SQLException{
         ViewBoxDao viewBox = new ViewBoxDao();
         return viewBox.getViewBoxEstado(estado);
+    }
+    
+    public String getViewBoxMunicipio(String municipio, String estado) throws SQLException{
+        ViewBoxDao viewBox = new ViewBoxDao();
+        return viewBox.getViewBoxMunicipio(municipio, estado);
     }
     
 }

@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public interface MunicipioDaoIT {
     
-    public Municipio pesquisarMuncipio(String municipio, String estado);
+    public Municipio pesquisarMuncipio(String municipio_Estado);
     
     
     

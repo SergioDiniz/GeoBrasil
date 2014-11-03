@@ -1,3 +1,5 @@
+<%@page import="InterfacesDao.MunicipioDao"%>
+<%@page import="Classes.Municipio"%>
 <%@page import="Classes.Estado"%>
 <%@page import="Gerenciador.Gerenciador"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
@@ -28,16 +30,24 @@
       
       
       <% 
+          request.setCharacterEncoding("UTF-8"); 
           Gerenciador gerenciador = new Gerenciador();
           
           if (request.getParameter("pesquisa") != null){
-              Estado estado = new Estado();
+              Municipio municipio = new Municipio();
               
               String resultadoPesquisa = request.getParameter("pesquisa");
-              estado = gerenciador.pesquisarEstado(resultadoPesquisa);
+              municipio = gerenciador.pesquisarMunicipio(resultadoPesquisa);
               
-              session.setAttribute("estado", estado);
+              session.setAttribute("estado", municipio);
               response.sendRedirect("index.jsp#mapa");
+              
+              
+              
+              
+              MunicipioDao md = new MunicipioDao();
+              String s = md.getMunicipio(resultadoPesquisa);
+              session.setAttribute("s", s);
           }
       
       
@@ -123,6 +133,10 @@
 
                      
                      <!--  -->
+                     ${estado.nome}
+                     ${estado.viewBox}
+                     <br/>
+                     ${s}
                      <div class="geometria">
                         <?xml version='1.0' encoding='utf-8' ?>
 			<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1 Basic//EN'
@@ -135,7 +149,8 @@
 					
 			    <g id='grupo'>
 			       <path id='${estado.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
-			       		onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${estado.SVG}'/>
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${estado.SVG}'/>
+
 			    </g>
 			</svg>
                          

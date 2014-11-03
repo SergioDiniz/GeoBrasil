@@ -20,16 +20,23 @@ import java.util.logging.Logger;
  */
 public class MunicipioDao implements MunicipioDaoIT{
     Connection con;
-
+    String municipio;
+    String estado;
+    
     public MunicipioDao() throws SQLException {
         this.con = new Conexao().criarConexao();
     }
 
     @Override
-    public Municipio pesquisarMuncipio(String municipio, String estado) {
+    public Municipio pesquisarMuncipio(String municipio_Estado) {
+        String municipioEstado[] = new String[2];
+        municipioEstado = municipio_Estado.split(" - ");
+        this.municipio = municipioEstado[0];
+        this.estado = municipioEstado[1];
+        
         Municipio muni = new Municipio();
         String sql = "select m.nome, m.the_geom, ST_AsSVG(m.the_geom) as SVG from municipio m, estado e \n" +
-"where ST_Within(m.the_geom, e.the_geom) and m.nome ilike ? and e.uf ilike ?";
+                    "where ST_Within(m.the_geom, e.the_geom) and m.nome ilike ? and e.uf ilike ?";
         try {
             PreparedStatement stat = con.prepareStatement(sql);
             stat.setString(1, municipio);
@@ -44,6 +51,8 @@ public class MunicipioDao implements MunicipioDaoIT{
             
             result.close();
             stat.close();
+            
+            muni.setViewBox(new ViewBoxDao().getViewBoxMunicipio(municipio, estado));
 
         } catch (SQLException ex) {
             Logger.getLogger(MunicipioDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -51,5 +60,14 @@ public class MunicipioDao implements MunicipioDaoIT{
         
         return muni;
     }
+
+    public String getMunicipio(String s) {
+        pesquisarMuncipio(s).getNome();
+        return this.municipio;
+    }
+
+    
+    
+    
  
 }
