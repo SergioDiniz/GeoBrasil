@@ -19,23 +19,6 @@ import Conexao.Conexao;
  */
 public class ViewBoxDao {
     
-    public String getTamanhoViewBox(String geometria) throws SQLException{
-        Connection connection = new Conexao().criarConexao();
-        String sql = "SELECT getTamanhoViewBox('"+geometria+"') as viewBox";
-        
-        String viewBox = null;
-        try{
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            ResultSet resultSet = stmt.executeQuery();
-            resultSet.next();
-            viewBox = resultSet.getString("viewBox");
-        }finally{
-            connection.close();
-        }
-        return viewBox;
-    }
-
-
     public String getViewBoxMunicipio(String municipio, String estado) throws SQLException{
         String sql = "SELECT CAST(ST_xmin(box2d(ST_Envelope(m.the_geom))) as varchar) || ' ' ||\n" +
                     "CAST(ST_ymax(box2d(ST_Envelope(m.the_geom))) * -1 as varchar) || ' ' || \n" +

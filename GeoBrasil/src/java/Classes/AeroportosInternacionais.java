@@ -10,6 +10,23 @@ package Classes;
  *
  * @author SergioD
  */
-public class AeroportosInternacionais {
+public class AeroportosInternacionais extends Geometria{
+
+    private String viewBoxEstado;
+    
+    public AeroportosInternacionais() {
+    }
+
+    public AeroportosInternacionais(String nome, String the_geom, String SVG, String viewBox) {
+        super(nome, the_geom, SVG, viewBox);
+    }
+
+    public String getViewBoxEstado() {
+        return viewBoxEstado;
+    }
+
+    public void setViewBoxEstado(String viewBoxEstado) {
+        this.viewBoxEstado = viewBoxEstado;
+    }
     
 }

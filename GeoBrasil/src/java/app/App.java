@@ -15,6 +15,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import Conexao.Conexao;
 import Gerenciador.Gerenciador;
+import InterfacesDao.AeroportosInternacionaisDao;
 import InterfacesDao.MunicipioDao;
 import java.util.ArrayList;
 import xml.Coordenadas;
@@ -26,8 +27,9 @@ import xml.GerenciadorCoordenada;
 public class App {
     public static void main (String[] args) throws SQLException{     
         Gerenciador g = new Gerenciador();
+        AeroportosInternacionaisDao ad = new AeroportosInternacionaisDao();
         
-        System.out.println(g.pesquisarRegiao("nordeste").getEstados().get(1).getNome());
+        System.out.println(ad.pesquisarAeroportoInternacioal("Salgado Filho").getViewBoxEstado());
         
     }
 }
