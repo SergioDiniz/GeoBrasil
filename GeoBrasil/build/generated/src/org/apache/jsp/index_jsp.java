@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import InterfacesDao.MunicipioDao;
 import Classes.Municipio;
 import Classes.Estado;
 import Gerenciador.Gerenciador;
@@ -49,6 +50,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html lang=\"pt_br\">\r\n");
       out.write("<head>\r\n");
@@ -76,23 +78,21 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("      \r\n");
       out.write("      ");
  
+          request.setCharacterEncoding("UTF-8"); 
           Gerenciador gerenciador = new Gerenciador();
           
           if (request.getParameter("pesquisa") != null){
-              Municipio municipio = new Municipio();
-              
-              String resultadoPesquisa = request.getParameter("pesquisa");
-              municipio = gerenciador.pesquisarMunicipio(resultadoPesquisa);
-              
-              session.setAttribute("estado", municipio);
-              response.sendRedirect("index.jsp#mapa");
+                Municipio municio = new Municipio();
+                
+                String rPesquisa = request.getParameter("pesquisa");
+                municio = gerenciador.pesquisarMunicipio(rPesquisa);
+                
+                session.setAttribute("estado", municio);
+                response.sendRedirect("index.jsp#mapa");
+                
           }
       
-      
-      
-      
       out.write("\r\n");
-      out.write("       \r\n");
       out.write("       \r\n");
       out.write("        <!-- link interno para a seção inicial -->\r\n");
       out.write("       <a id=\"inicio\"></a>\r\n");
@@ -178,6 +178,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                     ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${estado.viewBox}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\r\n");
+      out.write("                     <br/>\r\n");
+      out.write("                     ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${s}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\r\n");
       out.write("                     <div class=\"geometria\">\r\n");
       out.write("                        <?xml version='1.0' encoding='utf-8' ?>\r\n");
       out.write("\t\t\t<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1 Basic//EN'\r\n");
@@ -197,7 +201,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${estado.SVG}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("'/>\r\n");
-      out.write("\r\n");
       out.write("\t\t\t    </g>\r\n");
       out.write("\t\t\t</svg>\r\n");
       out.write("                         \r\n");

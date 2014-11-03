@@ -9,6 +9,7 @@ package InterfacesDao;
 import Classes.Estado;
 import Classes.Municipio;
 import Conexao.Conexao;
+import Gerenciador.Gerenciador;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -52,7 +53,7 @@ public class EstadoDao implements EstadoDaoIT{
             stat.close();
             
             estado.setMunicipios(pesquisarTodosOsMunicipiosDentroDeEstado(nome));
-            estado.setViewBox(new ViewBoxDao().getViewBoxEstado(nome)); 
+            estado.setViewBox(new Gerenciador().getViewBox(nome)); 
             
         } catch (SQLException ex) {
             System.out.println("ERRO " + ex.getMessage());

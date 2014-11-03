@@ -61,7 +61,7 @@ public class ViewBoxDao {
     }    
     
     
-    public String getViewBoxEstado(String estado) throws SQLException{
+    public String getViewBox(String geometria) throws SQLException{
         String sql = "SELECT CAST(ST_xmin(box2d(ST_Envelope(the_geom))) as varchar) || ' ' || " +
                     "CAST(ST_ymax(box2d(ST_Envelope(the_geom))) * -1 as varchar) || ' ' || " +
                     "CAST(ST_xmax(box2d(ST_Envelope(the_geom))) - ST_xmin(box2d(ST_Envelope(the_geom))) as varchar) || ' ' || " +
@@ -71,7 +71,7 @@ public class ViewBoxDao {
         Connection con = new Conexao().criarConexao();
         try{
            PreparedStatement stat = con.prepareStatement(sql);
-           stat.setString(1, estado);
+           stat.setString(1, geometria);
            ResultSet result = stat.executeQuery();
            result.next();
            
@@ -82,6 +82,4 @@ public class ViewBoxDao {
         }
         return viewBox;
     }
-    
-    
 }

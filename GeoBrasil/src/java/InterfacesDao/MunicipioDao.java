@@ -9,6 +9,7 @@ package InterfacesDao;
 import Classes.Municipio;
 import java.sql.Connection;
 import Conexao.Conexao;
+import Gerenciador.Gerenciador;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -52,7 +53,7 @@ public class MunicipioDao implements MunicipioDaoIT{
             result.close();
             stat.close();
             
-            muni.setViewBox(new ViewBoxDao().getViewBoxMunicipio(municipio, estado));
+            muni.setViewBox(new Gerenciador().getViewBoxMunicipio(municipio, estado));
 
         } catch (SQLException ex) {
             Logger.getLogger(MunicipioDao.class.getName()).log(Level.SEVERE, null, ex);

@@ -29,9 +29,9 @@ public class Gerenciador {
         return municipioD.pesquisarMuncipio(municipio_Estado);
     }
     
-    public String getViewBoxEstado(String estado) throws SQLException{
+    public String getViewBox(String geometria) throws SQLException{
         ViewBoxDao viewBox = new ViewBoxDao();
-        return viewBox.getViewBoxEstado(estado);
+        return viewBox.getViewBox(geometria);
     }
     
     public String getViewBoxMunicipio(String municipio, String estado) throws SQLException{
