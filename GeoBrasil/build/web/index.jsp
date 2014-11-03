@@ -34,20 +34,14 @@
           Gerenciador gerenciador = new Gerenciador();
           
           if (request.getParameter("pesquisa") != null){
-              Municipio municipio = new Municipio();
-              
-              String resultadoPesquisa = request.getParameter("pesquisa");
-              municipio = gerenciador.pesquisarMunicipio(resultadoPesquisa);
-              
-              session.setAttribute("estado", municipio);
-              response.sendRedirect("index.jsp#mapa");
-              
-              
-              
-              
-              MunicipioDao md = new MunicipioDao();
-              String s = md.getMunicipio(resultadoPesquisa);
-              session.setAttribute("s", s);
+                Estado estado = new  Estado();
+                
+                String rPesquisa = request.getParameter("pesquisa");
+                estado = gerenciador.pesquisarEstado(rPesquisa);
+                
+                session.setAttribute("estado", estado);
+                response.sendRedirect("index.jsp#mapa");
+                
           }
       
       
@@ -150,7 +144,11 @@
 			    <g id='grupo'>
 			       <path id='${estado.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
                                 onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${estado.SVG}'/>
-
+                               
+                               <c:forEach var="aux" items="${estado.municipios}">
+                               <path id='${aux.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${aux.SVG}'/>
+                               </c:forEach>
 			    </g>
 			</svg>
                          
