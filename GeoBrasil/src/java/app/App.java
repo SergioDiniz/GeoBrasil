@@ -7,6 +7,7 @@
 package app;
 
 import Classes.Estado;
+import Classes.Mesorregiao;
 import Classes.Municipio;
 import InterfacesDao.EstadoDao;
 import InterfacesDao.EstadoDaoIT;
@@ -23,12 +24,12 @@ import java.util.ArrayList;
 public class App {
     public static void main (String[] args) throws SQLException{     
         Gerenciador g = new Gerenciador();
-        MunicipioDao md = new MunicipioDao();
+        Mesorregiao m = new Mesorregiao();
         
         
         
         
-        System.out.println(md.getMunicipio("joão pessoa - pb"));
+        System.out.println(g.pesquisarMesorregiao("Marajó - pa").getNome());
 
         
     }

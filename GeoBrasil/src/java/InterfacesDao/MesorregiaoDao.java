@@ -16,13 +16,20 @@ import java.util.logging.Logger;
 public class MesorregiaoDao implements MesorregiaoDaoIT {
 
     private Connection conn;
+    private String mesorregiao;
+    private String estado;
 
     public MesorregiaoDao() throws SQLException {
         this.conn = new Conexao().criarConexao();
     }
 
     @Override
-    public Mesorregiao buscarMesorregiao(String mesorregiao, String estado) {
+    public Mesorregiao buscarMesorregiao(String mesorregiao_Estado) {
+        String mesorregiaoEstado[] = new String[2];
+        mesorregiaoEstado = mesorregiao_Estado.split(" - ");
+        this.mesorregiao = mesorregiaoEstado[0];
+        this.estado = mesorregiaoEstado[1];       
+        
         Mesorregiao meso = new Mesorregiao();
 
         String sql = "select m.nome, m.the_geom, ST_AsSVG(m.the_geom) as SVG from mesorregiao m, estado e "

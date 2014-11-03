@@ -8,5 +8,5 @@ import Classes.Mesorregiao;
  */
 public interface MesorregiaoDaoIT {
 
-    public Mesorregiao buscarMesorregiao(String mesorregiao, String estado);
+    public Mesorregiao buscarMesorregiao(String mesorregiao_Estado);
 }

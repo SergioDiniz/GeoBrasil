@@ -7,8 +7,10 @@
 package Gerenciador;
 
 import Classes.Estado;
+import Classes.Mesorregiao;
 import Classes.Municipio;
 import InterfacesDao.EstadoDao;
+import InterfacesDao.MesorregiaoDao;
 import InterfacesDao.MunicipioDao;
 import InterfacesDao.ViewBoxDao;
 import java.sql.SQLException;
@@ -28,6 +30,14 @@ public class Gerenciador {
         MunicipioDao municipioD = new MunicipioDao();
         return municipioD.pesquisarMuncipio(municipio_Estado);
     }
+    
+    
+    public Mesorregiao pesquisarMesorregiao(String mesorregiao_Estado) throws SQLException{
+        MesorregiaoDao mesorregiaoDao = new MesorregiaoDao();
+        return mesorregiaoDao.buscarMesorregiao(mesorregiao_Estado);
+    }
+    
+    
     
     public String getViewBox(String geometria) throws SQLException{
         ViewBoxDao viewBox = new ViewBoxDao();
