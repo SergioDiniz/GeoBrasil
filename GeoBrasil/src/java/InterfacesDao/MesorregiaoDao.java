@@ -1,14 +1,16 @@
 package InterfacesDao;
 
 import Classes.Mesorregiao;
+import Classes.Municipio;
 import Conexao.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import Gerenciador.Gerenciador;
 /**
  *
  * @author Fatinha de Sousa
@@ -49,10 +51,44 @@ public class MesorregiaoDao implements MesorregiaoDaoIT {
 
             rs.close();
             stat.close();
+            meso.setViewBox(new Gerenciador().getViewBoxMesorregiao(mesorregiao, estado));
+            meso.setMunicipios(pesquisarTodosOsMunicipiosDentroDeMesorregiao(mesorregiao, estado));
+            
         } catch (SQLException ex) {
             Logger.getLogger(MesorregiaoDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return meso;
     }
+
+    public ArrayList<Municipio> pesquisarTodosOsMunicipiosDentroDeMesorregiao(String mesorregiao, String estado) throws SQLException{
+        String sql = "select m.nome, m.the_geom, ST_AsSVG(m.the_geom) from municipio m, estado e, mesorregiao me\n" +
+                    "where ST_Within(m.the_geom, me.the_geom) and me.nome ilike ? and e.estado ilike ?";
+        
+        ArrayList<Municipio> municipios = new ArrayList();
+        
+        try{
+            PreparedStatement stat = conn.prepareStatement(sql);
+            stat.setString(1, mesorregiao);
+            stat.setString(2, estado);
+
+            ResultSet result = stat.executeQuery();
+            while(result.next()){
+                Municipio muni = new Municipio();
+                
+                muni.setNome(result.getString(1));
+                muni.setThe_geom(result.getString(2));
+                muni.setSVG(result.getString(3));
+                
+                municipios.add(muni);
+            }
+        
+        } catch (SQLException ex) {
+            Logger.getLogger("ERRO " + ex.getMessage());
+        }
+
+        return municipios;
+        
+    }    
+    
 }

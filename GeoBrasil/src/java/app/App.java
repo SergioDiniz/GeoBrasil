@@ -29,7 +29,7 @@ public class App {
         
         
         
-        System.out.println(g.pesquisarMesorregiao("Marajó - pa").getNome());
+        System.out.println(g.pesquisarMesorregiao("marajó - pa").getMunicipios().get(1).getNome());
 
         
     }

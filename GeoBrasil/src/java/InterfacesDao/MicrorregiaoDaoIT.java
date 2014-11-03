@@ -8,5 +8,5 @@ import Classes.Microrregiao;
  */
 public interface MicrorregiaoDaoIT {
 
-    public Microrregiao buscarMicrorregiao(String microrregiao, String estado);
+    public Microrregiao buscarMicrorregiao(String microrregiao_Estado);
 }

@@ -8,9 +8,11 @@ package Gerenciador;
 
 import Classes.Estado;
 import Classes.Mesorregiao;
+import Classes.Microrregiao;
 import Classes.Municipio;
 import InterfacesDao.EstadoDao;
 import InterfacesDao.MesorregiaoDao;
+import InterfacesDao.MicrorregiaoDao;
 import InterfacesDao.MunicipioDao;
 import InterfacesDao.ViewBoxDao;
 import java.sql.SQLException;
@@ -37,6 +39,10 @@ public class Gerenciador {
         return mesorregiaoDao.buscarMesorregiao(mesorregiao_Estado);
     }
     
+    public Microrregiao pesquisarMicrorregiao(String microrregiao_Estado) throws SQLException{
+        MicrorregiaoDao microrregiaoDao = new MicrorregiaoDao();
+        return microrregiaoDao.buscarMicrorregiao(microrregiao_Estado);
+    }
     
     
     public String getViewBox(String geometria) throws SQLException{
@@ -48,5 +54,15 @@ public class Gerenciador {
         ViewBoxDao viewBox = new ViewBoxDao();
         return viewBox.getViewBoxMunicipio(municipio, estado);
     }
+    
+    public String getViewBoxMicrorregiao(String microrregiao, String estado) throws SQLException{
+        ViewBoxDao viewBox = new ViewBoxDao();
+        return viewBox.getViewBoxMicrorregiao(microrregiao, estado);
+    }
+    
+    public String getViewBoxMesorregiao(String mesorregiao, String estado) throws SQLException{
+        ViewBoxDao viewBox = new ViewBoxDao();
+        return viewBox.getViewBoxMesorregiao(mesorregiao, estado);
+    }    
     
 }
