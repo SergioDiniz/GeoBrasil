@@ -17,20 +17,20 @@ import Conexao.Conexao;
 import Gerenciador.Gerenciador;
 import InterfacesDao.MunicipioDao;
 import java.util.ArrayList;
+import xml.Coordenadas;
+import xml.GerenciadorCoordenada;
 /**
  *
  * @author SergioD
  */
 public class App {
     public static void main (String[] args) throws SQLException{     
-        Gerenciador g = new Gerenciador();
-        Mesorregiao m = new Mesorregiao();
         
+        GerenciadorCoordenada gerenciador = new GerenciadorCoordenada();
         
+        Coordenadas coordenadas = gerenciador.buscarCoordenada("Cajazeiras");
         
-        
-        System.out.println(g.pesquisarMesorregiao("marajó - pa").getMunicipios().get(1).getNome());
-
-        
+        System.out.println("Latitude: " +coordenadas.getLatitude());
+        System.out.println("Longitude: " +coordenadas.getLongitude());
     }
 }
