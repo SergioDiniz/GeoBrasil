@@ -16,18 +16,30 @@ import java.sql.SQLException;
 import Conexao.Conexao;
 import Gerenciador.Gerenciador;
 import InterfacesDao.MunicipioDao;
+import java.io.IOException;
 import java.util.ArrayList;
+import org.jdom2.JDOMException;
 import xml.Coordenadas;
 import xml.GerenciadorCoordenada;
+import xml.GerenciadorXml;
 /**
  *
  * @author SergioD
  */
 public class App {
-    public static void main (String[] args) throws SQLException{     
-        Gerenciador g = new Gerenciador();
+    public static void main (String[] args) throws SQLException, IOException, JDOMException{     
         
-        System.out.println(g.pesquisarRegiao("nordeste").getEstados().get(1).getNome());
+        GerenciadorCoordenada gerenciador = new GerenciadorCoordenada();
+        Coordenadas coordenadas = gerenciador.buscarCoordenada("Cajazeiras");
         
+        System.out.println("Longitude: " +coordenadas.getLongitude());
+        System.out.println("Latitude: " +coordenadas.getLatitude());
+        
+        GerenciadorXml gXml = new GerenciadorXml();
+        
+        gXml.criaXml("Cajazeiras", "cajazeiras");
+        String xml = gXml.lerXml("cajazeiras");
+        
+        System.out.println(xml);
     }
 }
