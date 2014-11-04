@@ -12,6 +12,8 @@ package Classes;
  */
 public class Municipio extends Geometria{
 
+    private Cidade cidade;
+    
     public Municipio() {
     }
 
@@ -19,5 +21,14 @@ public class Municipio extends Geometria{
         super(nome, the_geom, SVG, viewBox);
     }
 
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
+
+    
 
 }

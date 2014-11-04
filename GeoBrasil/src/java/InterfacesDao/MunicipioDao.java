@@ -10,11 +10,14 @@ import Classes.Municipio;
 import java.sql.Connection;
 import Conexao.Conexao;
 import Gerenciador.Gerenciador;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.bind.JAXBException;
+import xml.GerenciadorXml;
 /**
  *
  * @author SergioD
@@ -54,8 +57,9 @@ public class MunicipioDao implements MunicipioDaoIT{
             stat.close();
             
             muni.setViewBox(new Gerenciador().getViewBoxMunicipio(municipio, estado));
-
-        } catch (SQLException ex) {
+            muni.setCidade(new GerenciadorXml().getObjeto(municipio, estado));
+            
+        } catch (SQLException | JAXBException | IOException ex) {
             Logger.getLogger(MunicipioDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         

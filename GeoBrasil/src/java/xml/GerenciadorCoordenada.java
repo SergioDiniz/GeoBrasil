@@ -19,17 +19,19 @@ public class GerenciadorCoordenada {
         this.conn = new Conexao().criarConexao();
     }
     
-    public Coordenadas buscarCoordenada(String municipio) throws SQLException{
+    public Coordenadas buscarCoordenada(String municipio, String estado) throws SQLException{
         String latitude;
         String longitude;
         String aux;
         String [] coordenadas;
         Coordenadas coordenada = null;
         
-        String sql = "select st_astext(st_centroid(the_geom)) from municipio where nome ilike ?";
+        String sql = "select st_astext(st_centroid(m.the_geom)) from municipio m, estado e \n" +
+                    "where ST_Within (m.the_geom, e.the_geom) and nome ilike ? and e.estado ilike ?";
         
         PreparedStatement stat = this.conn.prepareStatement(sql);
         stat.setString(1, municipio);
+        stat.setString(2, estado);
         
         ResultSet rs = stat.executeQuery();
         rs.next();
