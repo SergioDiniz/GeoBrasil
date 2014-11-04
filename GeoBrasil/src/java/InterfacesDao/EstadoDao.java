@@ -53,7 +53,7 @@ public class EstadoDao implements EstadoDaoIT{
             stat.close();
             
             estado.setMunicipios(pesquisarTodosOsMunicipiosDentroDeEstado(nome));
-            estado.setViewBox(new Gerenciador().getViewBox(nome)); 
+            estado.setViewBox(new Gerenciador().getViewBoxEstado(nome)); 
             
         } catch (SQLException ex) {
             System.out.println("ERRO " + ex.getMessage());

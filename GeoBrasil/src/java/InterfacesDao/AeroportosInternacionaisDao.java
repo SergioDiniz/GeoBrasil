@@ -47,7 +47,7 @@ public class AeroportosInternacionaisDao implements AeroportosInternacionaisDaoI
             aero.setThe_geom(result.getString(2));
             aero.setSVG(result.getString(3));
             
-            aero.setViewBoxEstado(pesquisarViewBoxDoEstadoDoAeroporto(aeroporto));
+            aero.setEstado(new Gerenciador().pesquisarEstado(pesquisarEstadoDoAeroporto(aeroporto)));
             
             result.close();
             stat.close();
@@ -61,9 +61,9 @@ public class AeroportosInternacionaisDao implements AeroportosInternacionaisDaoI
     }
     
     
-    public String pesquisarViewBoxDoEstadoDoAeroporto(String aeroporto) {
+    public String pesquisarEstadoDoAeroporto(String aeroporto) {
         
-        String viewBoxEstado = null;
+        String estado = null;
         String sql = "select e.estado from aeroportos a, estado e \n" +
                     "where ST_Within (a.geom, e.the_geom) and a.nome ilike ?";
         
@@ -74,7 +74,7 @@ public class AeroportosInternacionaisDao implements AeroportosInternacionaisDaoI
             ResultSet result = stat.executeQuery();
             result.next();
             
-            viewBoxEstado = new Gerenciador().getViewBox(result.getString(1));
+            estado = result.getString(1);
             
             result.close();
             stat.close();            
@@ -83,7 +83,7 @@ public class AeroportosInternacionaisDao implements AeroportosInternacionaisDaoI
             System.out.println(ex.getMessage());
         }
         
-        return viewBoxEstado;
+        return estado;
         
     }    
     

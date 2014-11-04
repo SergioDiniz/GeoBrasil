@@ -116,7 +116,7 @@ public class ViewBoxDao {
     }       
     
     
-    public String getViewBox(String geometria) throws SQLException{
+    public String getViewBoxEstado(String geometria) throws SQLException{
         String sql = "SELECT CAST(ST_xmin(box2d(ST_Envelope(the_geom))) as varchar) || ' ' || " +
                     "CAST(ST_ymax(box2d(ST_Envelope(the_geom))) * -1 as varchar) || ' ' || " +
                     "CAST(ST_xmax(box2d(ST_Envelope(the_geom))) - ST_xmin(box2d(ST_Envelope(the_geom))) as varchar) || ' ' || " +

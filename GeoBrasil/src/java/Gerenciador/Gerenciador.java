@@ -11,6 +11,7 @@ import Classes.Estado;
 import Classes.Mesorregiao;
 import Classes.Microrregiao;
 import Classes.Municipio;
+import Classes.Pais;
 import Classes.Regiao;
 import Classes.ZonasClimatica;
 import InterfacesDao.AeroportosInternacionaisDao;
@@ -18,6 +19,7 @@ import InterfacesDao.EstadoDao;
 import InterfacesDao.MesorregiaoDao;
 import InterfacesDao.MicrorregiaoDao;
 import InterfacesDao.MunicipioDao;
+import InterfacesDao.PaisDao;
 import InterfacesDao.RegiaoDao;
 import InterfacesDao.ViewBoxDao;
 import InterfacesDao.ZonasClimaticaDao;
@@ -50,6 +52,12 @@ public class Gerenciador {
         return microrregiaoDao.buscarMicrorregiao(microrregiao_Estado);
     }
     
+    public Pais getBrasil() throws SQLException{
+        PaisDao paisD = new PaisDao();
+        return paisD.getBrasil();
+    }
+        
+    
     public Regiao pesquisarRegiao(String regiao) throws SQLException{
         RegiaoDao r = new RegiaoDao();
         return r.buscarRegiao(regiao);
@@ -65,9 +73,9 @@ public class Gerenciador {
         return zona.pesquisarZonasClimatica(clima);
     }         
     
-    public String getViewBox(String geometria) throws SQLException{
+    public String getViewBoxEstado(String geometria) throws SQLException{
         ViewBoxDao viewBox = new ViewBoxDao();
-        return viewBox.getViewBox(geometria);
+        return viewBox.getViewBoxEstado(geometria);
     }
     
     public String getViewBoxMunicipio(String municipio, String estado) throws SQLException{

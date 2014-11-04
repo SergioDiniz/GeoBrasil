@@ -12,7 +12,7 @@ package Classes;
  */
 public class ZonasClimatica extends Geometria{
 
-    String viewBoxBrasil;
+    private Pais pais;
     
     public ZonasClimatica() {
     }
@@ -21,13 +21,15 @@ public class ZonasClimatica extends Geometria{
         super(nome, the_geom, SVG, viewBox);
     }
 
-    public String getViewBoxBrasil() {
-        return viewBoxBrasil;
+    public Pais getPais() {
+        return pais;
     }
 
-    public void setViewBoxBrasil(String viewBoxBrasil) {
-        this.viewBoxBrasil = viewBoxBrasil;
+    public void setPais(Pais pais) {
+        this.pais = pais;
     }
+
+
     
     
 }

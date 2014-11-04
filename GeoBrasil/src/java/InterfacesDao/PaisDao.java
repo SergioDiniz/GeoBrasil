@@ -6,7 +6,7 @@
 
 package InterfacesDao;
 
-import Classes.ZonasClimatica;
+import Classes.Pais;
 import Conexao.Conexao;
 import Gerenciador.Gerenciador;
 import java.sql.Connection;
@@ -18,43 +18,39 @@ import java.sql.SQLException;
  *
  * @author SergioD
  */
-public class ZonasClimaticaDao implements ZonasClimaticaDaoIT{
-    
+public class PaisDao implements PaisDaoIT{
     Connection con;
     
-    public ZonasClimaticaDao() throws SQLException {
+    public PaisDao() throws SQLException {
         this.con = new Conexao().criarConexao();
     }
 
     @Override
-    public ZonasClimatica pesquisarZonasClimatica(String clima) {
-        ZonasClimatica zonaC = new ZonasClimatica();
-        String sql = "select c.zona, c.geom, ST_AsSVG(c.geom) from climas c where c.zona ilike ?";
+    public Pais getBrasil() {
+        String sql = "select nome, the_geom, ST_AsSVG(the_geom) from pais where nome ilike 'brasil'";
+        Pais pais = new  Pais();
         
-        try{
+        try {
             PreparedStatement stat = con.prepareStatement(sql);
-            stat.setString(1, clima);
-            
             ResultSet result = stat.executeQuery();
             result.next();
             
-            zonaC.setNome(result.getString(1));
-            zonaC.setThe_geom(result.getString(2));
-            zonaC.setSVG(result.getString(3));
+            pais.setNome(result.getString(1));
+            pais.setThe_geom(result.getString(2));
+            pais.setSVG(result.getString(3));
             
-            zonaC.setPais(new Gerenciador().getBrasil());
             result.close();
             stat.close();
             
+
+            pais.setViewBox(new Gerenciador().getViewBoxBrasil()); 
+            
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("ERRO " + ex.getMessage());
         }        
         
-        return zonaC;
         
+        return pais;
     }
- 
-    
-    
     
 }

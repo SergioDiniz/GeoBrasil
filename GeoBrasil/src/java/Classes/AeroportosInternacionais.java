@@ -12,7 +12,7 @@ package Classes;
  */
 public class AeroportosInternacionais extends Geometria{
 
-    private String viewBoxEstado;
+    private Estado estado;
     
     public AeroportosInternacionais() {
     }
@@ -21,12 +21,14 @@ public class AeroportosInternacionais extends Geometria{
         super(nome, the_geom, SVG, viewBox);
     }
 
-    public String getViewBoxEstado() {
-        return viewBoxEstado;
+    public Estado getEstado() {
+        return estado;
     }
 
-    public void setViewBoxEstado(String viewBoxEstado) {
-        this.viewBoxEstado = viewBoxEstado;
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
+
+
     
 }
