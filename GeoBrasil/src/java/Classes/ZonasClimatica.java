@@ -10,6 +10,24 @@ package Classes;
  *
  * @author SergioD
  */
-public class ZonasClimatica {
+public class ZonasClimatica extends Geometria{
+
+    String viewBoxBrasil;
+    
+    public ZonasClimatica() {
+    }
+
+    public ZonasClimatica(String nome, String the_geom, String SVG, String viewBox) {
+        super(nome, the_geom, SVG, viewBox);
+    }
+
+    public String getViewBoxBrasil() {
+        return viewBoxBrasil;
+    }
+
+    public void setViewBoxBrasil(String viewBoxBrasil) {
+        this.viewBoxBrasil = viewBoxBrasil;
+    }
+    
     
 }

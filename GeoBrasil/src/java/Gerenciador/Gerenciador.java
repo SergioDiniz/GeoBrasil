@@ -6,17 +6,21 @@
 
 package Gerenciador;
 
+import Classes.AeroportosInternacionais;
 import Classes.Estado;
 import Classes.Mesorregiao;
 import Classes.Microrregiao;
 import Classes.Municipio;
 import Classes.Regiao;
+import Classes.ZonasClimatica;
+import InterfacesDao.AeroportosInternacionaisDao;
 import InterfacesDao.EstadoDao;
 import InterfacesDao.MesorregiaoDao;
 import InterfacesDao.MicrorregiaoDao;
 import InterfacesDao.MunicipioDao;
 import InterfacesDao.RegiaoDao;
 import InterfacesDao.ViewBoxDao;
+import InterfacesDao.ZonasClimaticaDao;
 import java.sql.SQLException;
 
 /**
@@ -51,6 +55,15 @@ public class Gerenciador {
         return r.buscarRegiao(regiao);
     } 
         
+    public AeroportosInternacionais pesquisarAeroportos(String aeroporto) throws SQLException{
+        AeroportosInternacionaisDao ae = new AeroportosInternacionaisDao();
+        return ae.pesquisarAeroportoInternacioal(aeroporto);
+    } 
+  
+    public ZonasClimatica pesquisarZonasClimatica(String clima) throws SQLException{
+        ZonasClimaticaDao zona = new ZonasClimaticaDao();
+        return zona.pesquisarZonasClimatica(clima);
+    }         
     
     public String getViewBox(String geometria) throws SQLException{
         ViewBoxDao viewBox = new ViewBoxDao();
@@ -76,4 +89,10 @@ public class Gerenciador {
         ViewBoxDao viewBox = new ViewBoxDao();
         return viewBox.getViewBoxRegiao(regiao);
     }        
+
+    public String getViewBoxBrasil() throws SQLException{
+        ViewBoxDao viewBox = new ViewBoxDao();
+        return viewBox.getViewBoxBrasil();
+    }  
+    
 }
