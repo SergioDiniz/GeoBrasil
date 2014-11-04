@@ -163,13 +163,83 @@
 			       <path id='${geometria.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
                                 onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${geometria.SVG}'/>
                               
-                               <c:forEach var="aux" items="geometria.municipios">
+                               <c:forEach var="aux" items="${geometria.municipios}">
                                 <path id='${aux.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
                                 onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${aux.SVG}'/>
                                </c:forEach>
                            </g>
 			</svg>
-                        </c:when>                        
+                        </c:when>
+                        
+			<c:when test="${tipoPesquisa eq 'microrregiao'}">
+			<svg xmlns='http://www.w3.org/2000/svg'
+			     xmlns:xlink='http:www.w3.org/1999/xlink'
+			     width='800' height='800' viewBox='${geometria.viewBox}'>
+			    <script type='text/ecmascript' xlink:href='funcoes.js'> </script>
+					
+			    <g id='grupo'>
+			       <path id='${geometria.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${geometria.SVG}'/>
+                              
+                               <c:forEach var="aux" items="${geometria.municipios}">
+                                <path id='${aux.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${aux.SVG}'/>
+                               </c:forEach>
+                           </g>
+			</svg>
+                        </c:when> 
+                        
+			<c:when test="${tipoPesquisa eq 'mesorregiao'}">
+			<svg xmlns='http://www.w3.org/2000/svg'
+			     xmlns:xlink='http:www.w3.org/1999/xlink'
+			     width='800' height='800' viewBox='${geometria.viewBox}'>
+			    <script type='text/ecmascript' xlink:href='funcoes.js'> </script>
+					
+			    <g id='grupo'>
+			       <path id='${geometria.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${geometria.SVG}'/>
+                              
+                               <c:forEach var="aux" items="${geometria.municipios}">
+                                <path id='${aux.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${aux.SVG}'/>
+                               </c:forEach>
+                           </g>
+			</svg>
+                        </c:when>    
+                        
+                        
+			<c:when test="${tipoPesquisa eq 'zclimaticas'}">
+			<svg xmlns='http://www.w3.org/2000/svg'
+			     xmlns:xlink='http:www.w3.org/1999/xlink'
+			     width='800' height='800' viewBox='${geometria.pais.viewBox}'>
+			    <script type='text/ecmascript' xlink:href='funcoes.js'> </script>
+					
+			    <g id='grupo'>
+                                <path id='${geometria.pais.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${geometria.pais.SVG}'/>
+                                
+			       <path id='${geometria.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${geometria.SVG}'/>
+                           </g>
+			</svg>
+                        </c:when>      
+                        
+			<c:when test="${tipoPesquisa eq 'aeroportos'}">
+			<svg xmlns='http://www.w3.org/2000/svg'
+			     xmlns:xlink='http:www.w3.org/1999/xlink'
+			     width='800' height='800' viewBox='${geometria.estado.viewBox}'>
+			    <script type='text/ecmascript' xlink:href='funcoes.js'> </script>
+					
+			    <g id='grupo'>
+                                <path id='${geometria.estado.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${geometria.estado.SVG}'/>
+                                
+			       <path id='${geometria.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${geometria.SVG}'/>
+                           </g>
+			</svg>
+                        </c:when>                         
+                        
                       </c:choose>
                      </div>
                      
