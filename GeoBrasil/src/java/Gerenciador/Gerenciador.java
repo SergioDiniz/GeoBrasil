@@ -20,10 +20,12 @@ import InterfacesDao.MesorregiaoDao;
 import InterfacesDao.MicrorregiaoDao;
 import InterfacesDao.MunicipioDao;
 import InterfacesDao.PaisDao;
+import InterfacesDao.RaioDao;
 import InterfacesDao.RegiaoDao;
 import InterfacesDao.ViewBoxDao;
 import InterfacesDao.ZonasClimaticaDao;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -52,16 +54,23 @@ public class Gerenciador {
         return microrregiaoDao.buscarMicrorregiao(microrregiao_Estado);
     }
     
+    public Regiao pesquisarRegiao(String regiao) throws SQLException{
+        RegiaoDao r = new RegiaoDao();
+        return r.buscarRegiao(regiao);
+    } 
+    
+    public ArrayList<Municipio> pesquisarMunicipiosEmUmRadio(String municipio_Estado_Raio) throws SQLException{
+        RaioDao rd = new RaioDao();
+        return rd.pesquisarMunicipiosEmUmRadio(municipio_Estado_Raio);
+    }     
+    
     public Pais getBrasil() throws SQLException{
         PaisDao paisD = new PaisDao();
         return paisD.getBrasil();
     }
         
     
-    public Regiao pesquisarRegiao(String regiao) throws SQLException{
-        RegiaoDao r = new RegiaoDao();
-        return r.buscarRegiao(regiao);
-    } 
+
         
     public AeroportosInternacionais pesquisarAeroportos(String aeroporto) throws SQLException{
         AeroportosInternacionaisDao ae = new AeroportosInternacionaisDao();

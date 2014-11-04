@@ -31,6 +31,6 @@ import xml.GerenciadorXml;
 public class App {
     public static void main (String[] args) throws SQLException, IOException, JDOMException{     
             Gerenciador g = new Gerenciador();
-            System.out.println(g.pesquisarAeroportos("Salgado Filho").getEstado().getNome());
+            System.out.println(g.pesquisarMunicipiosEmUmRadio("Cajazeiras - pb - 30").get(0).getNome());
     }
 }
