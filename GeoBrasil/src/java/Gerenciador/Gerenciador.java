@@ -11,6 +11,7 @@ import Classes.Estado;
 import Classes.Mesorregiao;
 import Classes.Microrregiao;
 import Classes.Municipio;
+import Classes.MunicipiosEmRaio;
 import Classes.Pais;
 import Classes.Regiao;
 import Classes.ZonasClimatica;
@@ -19,8 +20,8 @@ import InterfacesDao.EstadoDao;
 import InterfacesDao.MesorregiaoDao;
 import InterfacesDao.MicrorregiaoDao;
 import InterfacesDao.MunicipioDao;
+import InterfacesDao.MunicipiosEmRaioDao;
 import InterfacesDao.PaisDao;
-import InterfacesDao.RaioDao;
 import InterfacesDao.RegiaoDao;
 import InterfacesDao.ViewBoxDao;
 import InterfacesDao.ZonasClimaticaDao;
@@ -59,8 +60,8 @@ public class Gerenciador {
         return r.buscarRegiao(regiao);
     } 
     
-    public ArrayList<Municipio> pesquisarMunicipiosEmUmRadio(String municipio_Estado_Raio) throws SQLException{
-        RaioDao rd = new RaioDao();
+    public MunicipiosEmRaio pesquisarMunicipiosEmUmRadio(String municipio_Estado_Raio) throws SQLException{
+        MunicipiosEmRaioDao rd = new MunicipiosEmRaioDao();
         return rd.pesquisarMunicipiosEmUmRadio(municipio_Estado_Raio);
     }     
     

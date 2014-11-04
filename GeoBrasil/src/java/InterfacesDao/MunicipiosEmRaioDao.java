@@ -7,6 +7,7 @@
 package InterfacesDao;
 
 import Classes.Municipio;
+import Classes.MunicipiosEmRaio;
 import Conexao.Conexao;
 import Gerenciador.Gerenciador;
 import java.sql.Connection;
@@ -19,14 +20,14 @@ import java.util.ArrayList;
  *
  * @author SergioD
  */
-public class RaioDao {
+public class MunicipiosEmRaioDao {
     Connection con;
 
-    public RaioDao() throws SQLException {
+    public MunicipiosEmRaioDao() throws SQLException {
         this.con = new Conexao().criarConexao();
     }
     
-    public ArrayList<Municipio> pesquisarMunicipiosEmUmRadio(String municipio_Estado_Raio){
+    public MunicipiosEmRaio pesquisarMunicipiosEmUmRadio(String municipio_Estado_Raio){
         String[] municipioEstadoRaio = new String[3];
         municipioEstadoRaio = municipio_Estado_Raio.split(" - ");
         String municipio = municipioEstadoRaio[0];
@@ -34,7 +35,7 @@ public class RaioDao {
         Float raio = Float.parseFloat(municipioEstadoRaio[2]);
         
         
-        ArrayList<Municipio> municipios = new ArrayList();
+        MunicipiosEmRaio municipios = new MunicipiosEmRaio();
         String sql = "select ms.nome, ms.the_geom, ST_AsSVG(ms.the_geom) from municipio ms, municipio m, estado e " +
                     "where ST_Distance(ST_Centroid(ms.the_geom), ST_Centroid(m.the_geom)) * 40075/360 <= ?" +
                     "and m.nome ilike ? and e.estado ilike ?";
@@ -54,14 +55,13 @@ public class RaioDao {
                 muni.setThe_geom(result.getString(3));
                 muni.setViewBox(new Gerenciador().getViewBoxMunicipio(municipio, estado));
                 
-                municipios.add(muni);
-                
-                
-                
-                
+                municipios.getMunicipios().add(muni);
+           
             }
             result.close();
             stat.close();
+            
+            municipios.setEstado( new Gerenciador().pesquisarEstado(estado));
             
         } catch (SQLException ex){
             System.out.println(ex.getMessage());

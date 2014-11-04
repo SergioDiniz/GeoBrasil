@@ -11,6 +11,7 @@ import Classes.Estado;
 import Classes.Mesorregiao;
 import Classes.Microrregiao;
 import Classes.Municipio;
+import Classes.MunicipiosEmRaio;
 import Classes.ZonasClimatica;
 import Gerenciador.Gerenciador;
 import java.io.IOException;
@@ -114,17 +115,17 @@ public class Pesquisar extends HttpServlet {
             
             
             } else if("raio".equals(tipoPesquisa)){
-                ArrayList<Municipio> municipios = new ArrayList();
-                
+                PrintWriter out = response.getWriter();
+                MunicipiosEmRaio municipios = new MunicipiosEmRaio();
                 try {
-                    municipios = gerenciador.pesquisarMunicipiosEmUmRadio(campoPesquisa);
+                    municipios = gerenciador.pesquisarMunicipiosEmUmRadio("cajazeiras - pb - 30");
                     
                     session.setAttribute("geometria", municipios);
                     session.setAttribute("tipoPesquisa", tipoPesquisa);
                     
                     response.sendRedirect("index.jsp#mapa");
                 } catch (SQLException ex) {
-                    Logger.getLogger(Pesquisar.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println(ex.getMessage());
                 }
            
             

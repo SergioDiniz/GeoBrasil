@@ -34,7 +34,7 @@ public class App {
     public static void main (String[] args) throws SQLException, IOException, JDOMException, JAXBException{     
             Gerenciador g = new Gerenciador();
             
-            System.out.println(g.pesquisarAeroportos("Salgado Filho").getSVG());
+            System.out.println(g.pesquisarMunicipiosEmUmRadio("cajazeiras - pb - 30").getMunicipios().get(1).getNome());
             
     }
 }

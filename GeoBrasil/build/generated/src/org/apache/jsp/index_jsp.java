@@ -94,7 +94,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("      \r\n");
       out.write("      ");
  
-          
+          request.setAttribute("viewBox", "-38.765374044341 6.02596000671935 3.97167087932262 2.277028389628678");
 
       
       out.write("\r\n");
@@ -197,12 +197,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                     \r\n");
       out.write("                         \r\n");
       out.write("                     \r\n");
-      out.write("                     ");
+      out.write("                     <p class=\"sub-titulo\">");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.nome}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\r\n");
-      out.write("                     ");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.viewBox}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\r\n");
+      out.write(":</p>\r\n");
       out.write("                     <br/>\r\n");
       out.write("                     <div class=\"geometria\">\r\n");
       out.write("                        <?xml version='1.0' encoding='utf-8' ?>\r\n");
@@ -462,6 +459,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           return true;
         out.write("                         \r\n");
         out.write("                        \r\n");
+        out.write("\t\t\t");
+        if (_jspx_meth_c_when_6((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
+          return true;
+        out.write("                         \r\n");
+        out.write("                        \r\n");
         out.write("                      ");
         int evalDoAfterBody = _jspx_th_c_choose_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -491,7 +493,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("\r\n");
         out.write("\t\t\t<svg xmlns='http://www.w3.org/2000/svg'\r\n");
         out.write("\t\t\t     xmlns:xlink='http:www.w3.org/1999/xlink'\r\n");
-        out.write("\t\t\t     width='800' height='800' viewBox='");
+        out.write("\t\t\t     width='400' height='400' viewBox='");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.viewBox}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("'>\r\n");
         out.write("\t\t\t    <script type='text/ecmascript' xlink:href='funcoes.js'> </script>\r\n");
@@ -507,26 +509,90 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("\t\t\t</svg>\r\n");
         out.write("                        \r\n");
         out.write("                        \r\n");
-        out.write("\r\n");
+        out.write("                        <p class=\"sub-titulo\">Previsão do Tempo</p>\r\n");
         out.write("                                \r\n");
         out.write("                            <table class=\"previsaoDoTempo\">\r\n");
         out.write("                                <tr>\r\n");
-        out.write("                                    ");
-        if (_jspx_meth_c_forEach_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_0, _jspx_page_context))
-          return true;
-        out.write("\r\n");
+        out.write("                                    <td><h1>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[0].maxima}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("º</h1><br>maxima</td> \r\n");
+        out.write("                                    <td><h1>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[1].maxima}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("º</h1><br>maxima</td> \r\n");
+        out.write("                                    <td><h1>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[2].maxima}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("º</h1><br>maxima</td> \r\n");
+        out.write("                                    <td><h1>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[3].maxima}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("º</h1><br>maxima</td> \r\n");
+        out.write("                                    <td><h1>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[4].maxima}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("º</h1><br>maxima</td> \r\n");
+        out.write("                                    <td><h1>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[5].maxima}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("º</h1><br>maxima</td> \r\n");
         out.write("                                </tr>\r\n");
         out.write("                                <tr>\r\n");
-        out.write("                                    ");
-        if (_jspx_meth_c_forEach_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_0, _jspx_page_context))
-          return true;
-        out.write("\r\n");
+        out.write("                                    <td><h2>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[0].minima}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("º</h2><br>minima</td>\r\n");
+        out.write("                                    <td><h2>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[1].minima}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("º</h2><br>minima</td>\r\n");
+        out.write("                                    <td><h2>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[2].minima}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("º</h2><br>minima</td>\r\n");
+        out.write("                                    <td><h2>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[3].minima}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("º</h2><br>minima</td>\r\n");
+        out.write("                                    <td><h2>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[4].minima}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("º</h2><br>minima</td>\r\n");
+        out.write("                                    <td><h2>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[5].minima}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("º</h2><br>minima</td>\r\n");
         out.write("                                </tr>\r\n");
+        out.write("                                <!-- \r\n");
         out.write("                                <tr>\r\n");
-        out.write("                                    ");
-        if (_jspx_meth_c_forEach_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_0, _jspx_page_context))
-          return true;
-        out.write("\r\n");
+        out.write("                                    <td>Tempo: ");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[0].tempo}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("</td>\r\n");
+        out.write("                                    <td>Tempo: ");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[1].tempo}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("</td>\r\n");
+        out.write("                                    <td>Tempo: ");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[2].tempo}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("</td>\r\n");
+        out.write("                                    <td>Tempo: ");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[3].tempo}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("</td>\r\n");
+        out.write("                                    <td>Tempo: ");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[4].tempo}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("</td>\r\n");
+        out.write("                                    <td>Tempo: ");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[5].tempo}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("</td>\r\n");
+        out.write("                                </tr>\r\n");
+        out.write("                                -->\r\n");
+        out.write("                                <tr>\r\n");
+        out.write("                                    <td>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[0].dia}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("</td>\r\n");
+        out.write("                                    <td>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[1].dia}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("</td>\r\n");
+        out.write("                                    <td>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[2].dia}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("</td>\r\n");
+        out.write("                                    <td>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[3].dia}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("</td>\r\n");
+        out.write("                                    <td>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[4].dia}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("</td>\r\n");
+        out.write("                                    <td>");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.cidade.previsao[5].dia}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("</td>\r\n");
         out.write("                                </tr>\r\n");
         out.write("                            </table>                                \r\n");
         out.write("                            \r\n");
@@ -543,121 +609,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_forEach_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_0, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_forEach_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_0);
-    _jspx_th_c_forEach_0.setVar("aux");
-    _jspx_th_c_forEach_0.setItems(new String("geometria.cidade.previsao"));
-    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
-    try {
-      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
-      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-        do {
-          out.write("\r\n");
-          out.write("                                    <td><h1>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.maxima}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("º</h1><br>maxima</td>\r\n");
-          out.write("                                    ");
-          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
-          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-            break;
-        } while (true);
-      }
-      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-        return true;
-      }
-    } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
-        out = _jspx_page_context.popBody();
-      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
-    } finally {
-      _jspx_th_c_forEach_0.doFinally();
-      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
-    }
-    return false;
-  }
-
-  private boolean _jspx_meth_c_forEach_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_0, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-    _jspx_th_c_forEach_1.setPageContext(_jspx_page_context);
-    _jspx_th_c_forEach_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_0);
-    _jspx_th_c_forEach_1.setVar("aux");
-    _jspx_th_c_forEach_1.setItems(new String("geometria.cidade.previsao"));
-    int[] _jspx_push_body_count_c_forEach_1 = new int[] { 0 };
-    try {
-      int _jspx_eval_c_forEach_1 = _jspx_th_c_forEach_1.doStartTag();
-      if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-        do {
-          out.write("\r\n");
-          out.write("                                    <td><h2>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.minima}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("º</h2><br>minima</td>\r\n");
-          out.write("                                    ");
-          int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
-          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-            break;
-        } while (true);
-      }
-      if (_jspx_th_c_forEach_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-        return true;
-      }
-    } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_c_forEach_1[0]-- > 0)
-        out = _jspx_page_context.popBody();
-      _jspx_th_c_forEach_1.doCatch(_jspx_exception);
-    } finally {
-      _jspx_th_c_forEach_1.doFinally();
-      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_1);
-    }
-    return false;
-  }
-
-  private boolean _jspx_meth_c_forEach_2(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_0, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_2 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-    _jspx_th_c_forEach_2.setPageContext(_jspx_page_context);
-    _jspx_th_c_forEach_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_0);
-    _jspx_th_c_forEach_2.setVar("aux");
-    _jspx_th_c_forEach_2.setItems(new String("geometria.cidade.previsao"));
-    int[] _jspx_push_body_count_c_forEach_2 = new int[] { 0 };
-    try {
-      int _jspx_eval_c_forEach_2 = _jspx_th_c_forEach_2.doStartTag();
-      if (_jspx_eval_c_forEach_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-        do {
-          out.write("\r\n");
-          out.write("                                    <td>aux.dia</td>\r\n");
-          out.write("                                    ");
-          int evalDoAfterBody = _jspx_th_c_forEach_2.doAfterBody();
-          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-            break;
-        } while (true);
-      }
-      if (_jspx_th_c_forEach_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-        return true;
-      }
-    } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_c_forEach_2[0]-- > 0)
-        out = _jspx_page_context.popBody();
-      _jspx_th_c_forEach_2.doCatch(_jspx_exception);
-    } finally {
-      _jspx_th_c_forEach_2.doFinally();
-      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_2);
-    }
     return false;
   }
 
@@ -690,7 +641,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("'/>\r\n");
         out.write("                              \r\n");
         out.write("                               ");
-        if (_jspx_meth_c_forEach_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_1, _jspx_page_context))
+        if (_jspx_meth_c_forEach_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_1, _jspx_page_context))
           return true;
         out.write("\r\n");
         out.write("                           </g>\r\n");
@@ -709,20 +660,20 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_c_forEach_3(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_1, PageContext _jspx_page_context)
+  private boolean _jspx_meth_c_forEach_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_1, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_3 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-    _jspx_th_c_forEach_3.setPageContext(_jspx_page_context);
-    _jspx_th_c_forEach_3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_1);
-    _jspx_th_c_forEach_3.setVar("aux");
-    _jspx_th_c_forEach_3.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.municipios}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int[] _jspx_push_body_count_c_forEach_3 = new int[] { 0 };
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_1);
+    _jspx_th_c_forEach_0.setVar("aux");
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.municipios}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
     try {
-      int _jspx_eval_c_forEach_3 = _jspx_th_c_forEach_3.doStartTag();
-      if (_jspx_eval_c_forEach_3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
+      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
           out.write("                                <path id='");
@@ -732,21 +683,21 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.SVG}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("'/>\r\n");
           out.write("                               ");
-          int evalDoAfterBody = _jspx_th_c_forEach_3.doAfterBody();
+          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
         } while (true);
       }
-      if (_jspx_th_c_forEach_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
         return true;
       }
     } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_c_forEach_3[0]-- > 0)
+      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
         out = _jspx_page_context.popBody();
-      _jspx_th_c_forEach_3.doCatch(_jspx_exception);
+      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
     } finally {
-      _jspx_th_c_forEach_3.doFinally();
-      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_3);
+      _jspx_th_c_forEach_0.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
     }
     return false;
   }
@@ -780,7 +731,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("'/>\r\n");
         out.write("                              \r\n");
         out.write("                               ");
-        if (_jspx_meth_c_forEach_4((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_2, _jspx_page_context))
+        if (_jspx_meth_c_forEach_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_2, _jspx_page_context))
           return true;
         out.write("\r\n");
         out.write("                           </g>\r\n");
@@ -799,20 +750,20 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_c_forEach_4(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_2, PageContext _jspx_page_context)
+  private boolean _jspx_meth_c_forEach_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_2, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_4 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-    _jspx_th_c_forEach_4.setPageContext(_jspx_page_context);
-    _jspx_th_c_forEach_4.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_2);
-    _jspx_th_c_forEach_4.setVar("aux");
-    _jspx_th_c_forEach_4.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.municipios}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int[] _jspx_push_body_count_c_forEach_4 = new int[] { 0 };
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_2);
+    _jspx_th_c_forEach_1.setVar("aux");
+    _jspx_th_c_forEach_1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.municipios}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_1 = new int[] { 0 };
     try {
-      int _jspx_eval_c_forEach_4 = _jspx_th_c_forEach_4.doStartTag();
-      if (_jspx_eval_c_forEach_4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      int _jspx_eval_c_forEach_1 = _jspx_th_c_forEach_1.doStartTag();
+      if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
           out.write("                                <path id='");
@@ -822,21 +773,21 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.SVG}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("'/>\r\n");
           out.write("                               ");
-          int evalDoAfterBody = _jspx_th_c_forEach_4.doAfterBody();
+          int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
         } while (true);
       }
-      if (_jspx_th_c_forEach_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      if (_jspx_th_c_forEach_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
         return true;
       }
     } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_c_forEach_4[0]-- > 0)
+      while (_jspx_push_body_count_c_forEach_1[0]-- > 0)
         out = _jspx_page_context.popBody();
-      _jspx_th_c_forEach_4.doCatch(_jspx_exception);
+      _jspx_th_c_forEach_1.doCatch(_jspx_exception);
     } finally {
-      _jspx_th_c_forEach_4.doFinally();
-      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_4);
+      _jspx_th_c_forEach_1.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_1);
     }
     return false;
   }
@@ -870,7 +821,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("'/>\r\n");
         out.write("                              \r\n");
         out.write("                               ");
-        if (_jspx_meth_c_forEach_5((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_3, _jspx_page_context))
+        if (_jspx_meth_c_forEach_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_3, _jspx_page_context))
           return true;
         out.write("\r\n");
         out.write("                           </g>\r\n");
@@ -889,20 +840,20 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_c_forEach_5(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_3, PageContext _jspx_page_context)
+  private boolean _jspx_meth_c_forEach_2(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_3, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_5 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-    _jspx_th_c_forEach_5.setPageContext(_jspx_page_context);
-    _jspx_th_c_forEach_5.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_3);
-    _jspx_th_c_forEach_5.setVar("aux");
-    _jspx_th_c_forEach_5.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.municipios}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int[] _jspx_push_body_count_c_forEach_5 = new int[] { 0 };
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_2 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_2.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_3);
+    _jspx_th_c_forEach_2.setVar("aux");
+    _jspx_th_c_forEach_2.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.municipios}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_2 = new int[] { 0 };
     try {
-      int _jspx_eval_c_forEach_5 = _jspx_th_c_forEach_5.doStartTag();
-      if (_jspx_eval_c_forEach_5 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      int _jspx_eval_c_forEach_2 = _jspx_th_c_forEach_2.doStartTag();
+      if (_jspx_eval_c_forEach_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
           out.write("                                <path id='");
@@ -912,21 +863,21 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.SVG}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("'/>\r\n");
           out.write("                               ");
-          int evalDoAfterBody = _jspx_th_c_forEach_5.doAfterBody();
+          int evalDoAfterBody = _jspx_th_c_forEach_2.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
         } while (true);
       }
-      if (_jspx_th_c_forEach_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      if (_jspx_th_c_forEach_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
         return true;
       }
     } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_c_forEach_5[0]-- > 0)
+      while (_jspx_push_body_count_c_forEach_2[0]-- > 0)
         out = _jspx_page_context.popBody();
-      _jspx_th_c_forEach_5.doCatch(_jspx_exception);
+      _jspx_th_c_forEach_2.doCatch(_jspx_exception);
     } finally {
-      _jspx_th_c_forEach_5.doFinally();
-      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_5);
+      _jspx_th_c_forEach_2.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_2);
     }
     return false;
   }
@@ -1029,6 +980,36 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_5);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_when_6(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:when
+    org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_6 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
+    _jspx_th_c_when_6.setPageContext(_jspx_page_context);
+    _jspx_th_c_when_6.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
+    _jspx_th_c_when_6.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tipoPesquisa eq 'raio'}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_when_6 = _jspx_th_c_when_6.doStartTag();
+    if (_jspx_eval_c_when_6 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                                   ");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("\r\n");
+        out.write("                        ");
+        int evalDoAfterBody = _jspx_th_c_when_6.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_when_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_6);
+      return true;
+    }
+    _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_6);
     return false;
   }
 }
