@@ -19,10 +19,10 @@ public class Previsao {
 
     public Previsao(){}
     
-    public Previsao(String dia, String tempo, String maximo, String minima, String iuv) {
+    public Previsao(String dia, String tempo, String maxima, String minima, String iuv) {
         this.dia = dia;
         this.tempo = tempo;
-        this.maxima = maximo;
+        this.maxima = maxima;
         this.minima = minima;
         this.iuv = iuv;
     }

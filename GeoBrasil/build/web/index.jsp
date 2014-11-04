@@ -132,8 +132,7 @@
                      
                          
                      
-                     ${geometria.nome}
-                     ${geometria.viewBox}
+                     <p class="sub-titulo">${geometria.nome}:</p>
                      <br/>
                      <div class="geometria">
                         <?xml version='1.0' encoding='utf-8' ?>
@@ -143,7 +142,7 @@
 			<c:when test="${tipoPesquisa eq 'municipio'}">
 			<svg xmlns='http://www.w3.org/2000/svg'
 			     xmlns:xlink='http:www.w3.org/1999/xlink'
-			     width='800' height='800' viewBox='${geometria.viewBox}'>
+			     width='400' height='400' viewBox='${geometria.viewBox}'>
 			    <script type='text/ecmascript' xlink:href='funcoes.js'> </script>
 					
 			    <g id='grupo'>
@@ -151,6 +150,49 @@
                                 onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${geometria.SVG}'/>
 			    </g>
 			</svg>
+                        
+                        
+                        <p class="sub-titulo">Previsão do Tempo</p>
+                                
+                            <table class="previsaoDoTempo">
+                                <tr>
+                                    <td><h1>${geometria.cidade.previsao[0].maxima}º</h1><br>maxima</td> 
+                                    <td><h1>${geometria.cidade.previsao[1].maxima}º</h1><br>maxima</td> 
+                                    <td><h1>${geometria.cidade.previsao[2].maxima}º</h1><br>maxima</td> 
+                                    <td><h1>${geometria.cidade.previsao[3].maxima}º</h1><br>maxima</td> 
+                                    <td><h1>${geometria.cidade.previsao[4].maxima}º</h1><br>maxima</td> 
+                                    <td><h1>${geometria.cidade.previsao[5].maxima}º</h1><br>maxima</td> 
+                                </tr>
+                                <tr>
+                                    <td><h2>${geometria.cidade.previsao[0].minima}º</h2><br>minima</td>
+                                    <td><h2>${geometria.cidade.previsao[1].minima}º</h2><br>minima</td>
+                                    <td><h2>${geometria.cidade.previsao[2].minima}º</h2><br>minima</td>
+                                    <td><h2>${geometria.cidade.previsao[3].minima}º</h2><br>minima</td>
+                                    <td><h2>${geometria.cidade.previsao[4].minima}º</h2><br>minima</td>
+                                    <td><h2>${geometria.cidade.previsao[5].minima}º</h2><br>minima</td>
+                                </tr>
+                                <!-- 
+                                <tr>
+                                    <td>Tempo: ${geometria.cidade.previsao[0].tempo}</td>
+                                    <td>Tempo: ${geometria.cidade.previsao[1].tempo}</td>
+                                    <td>Tempo: ${geometria.cidade.previsao[2].tempo}</td>
+                                    <td>Tempo: ${geometria.cidade.previsao[3].tempo}</td>
+                                    <td>Tempo: ${geometria.cidade.previsao[4].tempo}</td>
+                                    <td>Tempo: ${geometria.cidade.previsao[5].tempo}</td>
+                                </tr>
+                                -->
+                                <tr>
+                                    <td>${geometria.cidade.previsao[0].dia}</td>
+                                    <td>${geometria.cidade.previsao[1].dia}</td>
+                                    <td>${geometria.cidade.previsao[2].dia}</td>
+                                    <td>${geometria.cidade.previsao[3].dia}</td>
+                                    <td>${geometria.cidade.previsao[4].dia}</td>
+                                    <td>${geometria.cidade.previsao[5].dia}</td>
+                                </tr>
+                            </table>                                
+                            
+                        </div>
+                        
                         </c:when>
                         
 			<c:when test="${tipoPesquisa eq 'estado'}">
@@ -234,8 +276,8 @@
                                 <path id='${geometria.estado.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
                                 onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${geometria.estado.SVG}'/>
                                 
-			       <path id='${geometria.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
-                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${geometria.SVG}'/>
+                                <circle id='${geometria.nome}' ${geometria.SVG} r="0.09" fill='red' fill-opacity='0.5' stroke='red' stroke-width='0.0002' 
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)'/>
                            </g>
 			</svg>
                         </c:when>                         
@@ -248,7 +290,6 @@
             </div> 
         </div>
 
-       
        
        
         <!-- link interno para a seção que fala sobre o PROJETO -->
