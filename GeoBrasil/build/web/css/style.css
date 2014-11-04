@@ -308,3 +308,13 @@ border: solid 2px;
     padding-left: 650px;
     padding-top: 20px;
 }
+
+
+.tipo-pesquisa{
+    margin-left: 358px;
+    position: absolute;
+}
+
+.campo_de_pesquisa{
+    margin-left: 250px;
+}

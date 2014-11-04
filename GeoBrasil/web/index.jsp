@@ -30,19 +30,8 @@
       
       
       <% 
-          request.setCharacterEncoding("UTF-8"); 
-          Gerenciador gerenciador = new Gerenciador();
           
-          if (request.getParameter("pesquisa") != null){
-                Municipio municio = new Municipio();
-                
-                String rPesquisa = request.getParameter("pesquisa");
-                municio = gerenciador.pesquisarMunicipio(rPesquisa);
-                
-                session.setAttribute("estado", municio);
-                response.sendRedirect("index.jsp#mapa");
-                
-          }
+
       %>
        
         <!-- link interno para a seção inicial -->
@@ -112,37 +101,76 @@
                      <p id="titulo">pesquise no mapa</p>
                      
                      <div class="row">
-                         <form action="index.jsp" method="post">
-                         <div class="col-md-6">
-                             <input type="text" class="form-control input-lg" placeholder="Pesquise" name="pesquisa">
-                         </div>
-                         
-                             <input type="submit" class="btn btn-primary btn-lg" value="Pesquisar">
+                        <div class="campo_de_pesquisa">
+                         <form action="Pesquisar" method="post">
+                             <div class="col-md-6">
+                                 <input type="text" name="campoPesquisa" class="form-control">
+                             </div>
+                             <div class="tipo-pesquisa">
+                                 <div class="col-md-1">
+                                     <div class="input-group">
+                                         <div class="input-group-btn">
+                                             <select class="form-control" name="tipoPesquisa">
+                                                 <option value="municipio">Municipio</option>
+                                                 <option value="estado">Estado</option>
+                                                 <option value="microrregiao">Microrregião</option>
+                                                 <option value="mesorregiao">Mesorregiao</option>
+                                                 <option value="raio">Em um raio de uma cidade</option>
+                                                 <option value="zclimaticas">Zonas Climaticas</option>
+                                                 <option value="aeroportos">Aeroportos Internacionais</option>
+                                             </select>
+                                             <button class="btn btn-primary" type="submit">Pesquisar</button>
+                                         </div>
+                                     </div>
+                                 </div>                                 
+                             </div>
                          </form>
+                         </div>
                      </div>
 
-                     
                      <!--  -->
-                     ${estado.nome}
-                     ${estado.viewBox}
+                     
+                         
+                     
+                     ${geometria.nome}
+                     ${geometria.viewBox}
                      <br/>
-                     ${s}
                      <div class="geometria">
                         <?xml version='1.0' encoding='utf-8' ?>
 			<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1 Basic//EN'
 			'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-basic.dtd'>
-			
+                      <c:choose>
+			<c:when test="${tipoPesquisa eq 'municipio'}">
 			<svg xmlns='http://www.w3.org/2000/svg'
 			     xmlns:xlink='http:www.w3.org/1999/xlink'
-			     width='800' height='800' viewBox='${estado.viewBox}'>
+			     width='800' height='800' viewBox='${geometria.viewBox}'>
 			    <script type='text/ecmascript' xlink:href='funcoes.js'> </script>
 					
 			    <g id='grupo'>
-			       <path id='${estado.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
-                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${estado.SVG}'/>
+			       <path id='${geometria.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${geometria.SVG}'/>
 			    </g>
 			</svg>
-                         
+                        </c:when>
+                        
+			<c:when test="${tipoPesquisa eq 'estado'}">
+			<svg xmlns='http://www.w3.org/2000/svg'
+			     xmlns:xlink='http:www.w3.org/1999/xlink'
+			     width='800' height='800' viewBox='${geometria.viewBox}'>
+			    <script type='text/ecmascript' xlink:href='funcoes.js'> </script>
+					
+			    <g id='grupo'>
+			       <path id='${geometria.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${geometria.SVG}'/>
+                              
+                               <c:forEach var="aux" items="geometria.municipios">
+                                <path id='${aux.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${aux.SVG}'/>
+                               </c:forEach>
+                           </g>
+			</svg>
+                        </c:when>                        
+                      </c:choose>
                      </div>
                      
                      

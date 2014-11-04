@@ -13,13 +13,13 @@
   </description>
 
   <servlet>
-	<servlet-name>PesquisarEstado</servlet-name>
-	<servlet-class>Servlets.PesquisarEstado</servlet-class>
+	<servlet-name>Pesquisar</servlet-name>
+	<servlet-class>Servlets.Pesquisar</servlet-class>
   </servlet>
   
   <servlet-mapping>
-	<servlet-name>PesquisarEstado</servlet-name>
-	<url-pattern>/PesquisarEstado</url-pattern>
+	<servlet-name>Pesquisar</servlet-name>
+	<url-pattern>/Pesquisar</url-pattern>
   </servlet-mapping>
   
     
