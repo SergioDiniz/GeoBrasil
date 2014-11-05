@@ -56,6 +56,7 @@ public class Pesquisar extends HttpServlet {
                 try {
                     municipio = gerenciador.pesquisarMunicipio(campoPesquisa);
                     
+
                     session.setAttribute("geometria", municipio);
                     session.setAttribute("tipoPesquisa", tipoPesquisa);
                     
@@ -134,7 +135,11 @@ public class Pesquisar extends HttpServlet {
             
             } else if("raio".equals(tipoPesquisa)){
                 
+                /*
                 PrintWriter out = response.getWriter();
+                out.println(campoPesquisa);
+                
+                
                 MunicipiosEmRaio municipios = new MunicipiosEmRaio();
                 try {
                     municipios = gerenciador.pesquisarMunicipiosEmUmRadio("cajazeiras - pb - 30");
@@ -146,10 +151,10 @@ public class Pesquisar extends HttpServlet {
                 } catch (SQLException ex) {
                     System.out.println(ex.getMessage());
                 }
-
-                
-                    //session.setAttribute("tipoPesquisa", tipoPesquisa);
-                    //response.sendRedirect("index.jsp#mapa");
+                */
+                    session.setAttribute("campoPesquisa", campoPesquisa);
+                    session.setAttribute("tipoPesquisa", tipoPesquisa);
+                    response.sendRedirect("index.jsp#mapa");
             
             
             

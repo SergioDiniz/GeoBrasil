@@ -31,15 +31,17 @@
       
       
       <% 
+              request.setCharacterEncoding("UTF-8"); 
+              String campoPesquisa = (String) session.getAttribute("campoPesquisa");
+              String tipoPesquisa = (String) session.getAttribute("tipoPesquisa");
+              if (campoPesquisa != null && tipoPesquisa == "raio"){
               Gerenciador gerenciador = new Gerenciador();
               MunicipiosEmRaio municipios = new MunicipiosEmRaio();
-              municipios = gerenciador.pesquisarMunicipiosEmUmRadio("cajazeiras - pb - 30");
-              session.setAttribute("raio", municipios);
-
-
-
+              municipios = gerenciador.pesquisarMunicipiosEmUmRadio(campoPesquisa);
+              session.setAttribute("raio", municipios);    
+              }
+               
       %>
-       
         <!-- link interno para a seção inicial -->
        <a id="inicio"></a>
         <!-- Logo e Menu -->
@@ -310,7 +312,23 @@
 			</svg>
                         </c:when>                         
                         
-                      
+			<c:when test="${tipoPesquisa eq 'raio'}">
+			<svg xmlns='http://www.w3.org/2000/svg'
+			     xmlns:xlink='http:www.w3.org/1999/xlink'
+			     width='800' height='800' viewBox='${raio.estado.viewBox}'>
+			    <script type='text/ecmascript' xlink:href='funcoes.js'> </script>
+					
+			    <g id='grupo'>                                
+                                <path id='${raio.estado.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${raio.estado.SVG}'/>
+                                
+                                <c:forEach var="aux" items="${raio.getMunicipios()}">
+                                <path id='${aux.nome}' fill='green' fill-opacity='0.2' stroke='blue' stroke-width='0.001' 
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${aux.SVG}'/>
+                                </c:forEach>
+                           </g>
+			</svg>
+                        </c:when>                         
                         
                       </c:choose>
                      </div>
