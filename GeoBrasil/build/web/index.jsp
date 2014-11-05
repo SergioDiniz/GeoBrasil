@@ -156,7 +156,8 @@
 					
 			    <g id='grupo'>
 			       <path id='${geometria.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
-                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Redireciona("Pesquisar")' d='${geometria.SVG}'/>
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Redireciona("Pesquisar", "cidade", "${geometria.nome}", "estado", "PB")' 
+                                d='${geometria.SVG}'/>
 			    </g>
 			</svg>
                         

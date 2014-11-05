@@ -11,6 +11,6 @@ function Info(evt){
 	alert(evt.target.getAttribute("id"));
 }
 
-function Redireciona(servlet){  
-  location.href = servlet;  
+function Redireciona(servlet, cidade, nome, estado, nomeEstado){  
+  location.href = servlet+"?"+cidade+"="+nome+"="+estado+"="+nomeEstado;  
 } 
