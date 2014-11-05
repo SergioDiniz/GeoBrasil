@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import Classes.MunicipiosEmRaio;
 import InterfacesDao.MunicipioDao;
 import Classes.Municipio;
 import Classes.Estado;
@@ -67,6 +68,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html lang=\"pt_br\">\r\n");
       out.write("<head>\r\n");
@@ -82,7 +84,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <script src=\"js/bootstrap.js\"></script>     \r\n");
       out.write("\r\n");
       out.write("    <script src=\"js/scrips.js\"></script>\t \r\n");
-      out.write("    \r\n");
+      out.write("    <script src=\"js/function.js\"></script>\r\n");
       out.write("    <title>GeoBrasil</title>\r\n");
       out.write("\t<!--[if lt IE 9] >\r\n");
       out.write("\t\t<script src=\"js/html5shiv.js\"></script>\r\n");
@@ -94,7 +96,12 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("      \r\n");
       out.write("      ");
  
-          request.setAttribute("viewBox", "-38.765374044341 6.02596000671935 3.97167087932262 2.277028389628678");
+              Gerenciador gerenciador = new Gerenciador();
+              MunicipiosEmRaio municipios = new MunicipiosEmRaio();
+              municipios = gerenciador.pesquisarMunicipiosEmUmRadio("cajazeiras - pb - 30");
+              session.setAttribute("raio", municipios);
+
+
 
       
       out.write("\r\n");
@@ -180,6 +187,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                 <option value=\"estado\">Estado</option>\r\n");
       out.write("                                                 <option value=\"microrregiao\">Microrregião</option>\r\n");
       out.write("                                                 <option value=\"mesorregiao\">Mesorregiao</option>\r\n");
+      out.write("                                                 <option value=\"regiao\">Região</option>\r\n");
       out.write("                                                 <option value=\"raio\">Em um raio de uma cidade</option>\r\n");
       out.write("                                                 <option value=\"zclimaticas\">Zonas Climaticas</option>\r\n");
       out.write("                                                 <option value=\"aeroportos\">Aeroportos Internacionais</option>\r\n");
@@ -452,17 +460,20 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("\t\t\t");
         if (_jspx_meth_c_when_4((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
           return true;
-        out.write("      \r\n");
+        out.write("                          \r\n");
+        out.write("                        \r\n");
         out.write("                        \r\n");
         out.write("\t\t\t");
         if (_jspx_meth_c_when_5((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
           return true;
-        out.write("                         \r\n");
+        out.write("      \r\n");
         out.write("                        \r\n");
         out.write("\t\t\t");
         if (_jspx_meth_c_when_6((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
           return true;
         out.write("                         \r\n");
+        out.write("                        \r\n");
+        out.write("                      \r\n");
         out.write("                        \r\n");
         out.write("                      ");
         int evalDoAfterBody = _jspx_th_c_choose_0.doAfterBody();
@@ -678,7 +689,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\r\n");
           out.write("                                <path id='");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.nome}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' \r\n");
+          out.write("' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.001' \r\n");
           out.write("                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.SVG}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("'/>\r\n");
@@ -768,7 +779,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\r\n");
           out.write("                                <path id='");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.nome}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' \r\n");
+          out.write("' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.001' \r\n");
           out.write("                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.SVG}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("'/>\r\n");
@@ -858,7 +869,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\r\n");
           out.write("                                <path id='");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.nome}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' \r\n");
+          out.write("' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.001' \r\n");
           out.write("                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.SVG}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("'/>\r\n");
@@ -890,7 +901,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_4 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
     _jspx_th_c_when_4.setPageContext(_jspx_page_context);
     _jspx_th_c_when_4.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
-    _jspx_th_c_when_4.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tipoPesquisa eq 'zclimaticas'}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    _jspx_th_c_when_4.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tipoPesquisa eq 'mesorregiao'}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
     int _jspx_eval_c_when_4 = _jspx_th_c_when_4.doStartTag();
     if (_jspx_eval_c_when_4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
@@ -898,24 +909,22 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("\t\t\t<svg xmlns='http://www.w3.org/2000/svg'\r\n");
         out.write("\t\t\t     xmlns:xlink='http:www.w3.org/1999/xlink'\r\n");
         out.write("\t\t\t     width='800' height='800' viewBox='");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.pais.viewBox}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.viewBox}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("'>\r\n");
         out.write("\t\t\t    <script type='text/ecmascript' xlink:href='funcoes.js'> </script>\r\n");
         out.write("\t\t\t\t\t\r\n");
         out.write("\t\t\t    <g id='grupo'>\r\n");
-        out.write("                                <path id='");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.pais.nome}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' \r\n");
-        out.write("                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.pais.SVG}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("'/>\r\n");
-        out.write("                                \r\n");
         out.write("\t\t\t       <path id='");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.nome}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' \r\n");
         out.write("                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.SVG}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("'/>\r\n");
+        out.write("                              \r\n");
+        out.write("                               ");
+        if (_jspx_meth_c_forEach_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_4, _jspx_page_context))
+          return true;
+        out.write("\r\n");
         out.write("                           </g>\r\n");
         out.write("\t\t\t</svg>\r\n");
         out.write("                        ");
@@ -932,6 +941,48 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
+  private boolean _jspx_meth_c_forEach_3(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_4, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_3 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_3.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_4);
+    _jspx_th_c_forEach_3.setVar("aux");
+    _jspx_th_c_forEach_3.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.municipios}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_3 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_3 = _jspx_th_c_forEach_3.doStartTag();
+      if (_jspx_eval_c_forEach_3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                                <path id='");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.nome}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.001' \r\n");
+          out.write("                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.SVG}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("'/>\r\n");
+          out.write("                               ");
+          int evalDoAfterBody = _jspx_th_c_forEach_3.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_3[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_3.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_3.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_3);
+    }
+    return false;
+  }
+
   private boolean _jspx_meth_c_when_5(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -940,9 +991,99 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_5 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
     _jspx_th_c_when_5.setPageContext(_jspx_page_context);
     _jspx_th_c_when_5.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
-    _jspx_th_c_when_5.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tipoPesquisa eq 'aeroportos'}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    _jspx_th_c_when_5.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tipoPesquisa eq 'regiao'}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
     int _jspx_eval_c_when_5 = _jspx_th_c_when_5.doStartTag();
     if (_jspx_eval_c_when_5 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("\t\t\t<svg xmlns='http://www.w3.org/2000/svg'\r\n");
+        out.write("\t\t\t     xmlns:xlink='http:www.w3.org/1999/xlink'\r\n");
+        out.write("\t\t\t     width='800' height='800' viewBox='");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.viewBox}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("'>\r\n");
+        out.write("\t\t\t    <script type='text/ecmascript' xlink:href='funcoes.js'> </script>\r\n");
+        out.write("\t\t\t\t\t\r\n");
+        out.write("\t\t\t    <g id='grupo'>\r\n");
+        out.write("                                <path id='");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.nome}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' \r\n");
+        out.write("                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.SVG}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("'/>\r\n");
+        out.write("                                \r\n");
+        out.write("                               ");
+        if (_jspx_meth_c_forEach_4((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_5, _jspx_page_context))
+          return true;
+        out.write("\r\n");
+        out.write("                           </g>\r\n");
+        out.write("\t\t\t</svg>\r\n");
+        out.write("                        ");
+        int evalDoAfterBody = _jspx_th_c_when_5.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_when_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_5);
+      return true;
+    }
+    _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_5);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_4(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_5, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_4 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_4.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_4.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_5);
+    _jspx_th_c_forEach_4.setVar("aux");
+    _jspx_th_c_forEach_4.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.estados}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_4 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_4 = _jspx_th_c_forEach_4.doStartTag();
+      if (_jspx_eval_c_forEach_4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                                <path id='");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.nome}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.001' \r\n");
+          out.write("                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.SVG}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("'/>\r\n");
+          out.write("                               ");
+          int evalDoAfterBody = _jspx_th_c_forEach_4.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_4[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_4.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_4.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_4);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_when_6(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:when
+    org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_6 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
+    _jspx_th_c_when_6.setPageContext(_jspx_page_context);
+    _jspx_th_c_when_6.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
+    _jspx_th_c_when_6.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tipoPesquisa eq 'aeroportos'}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_when_6 = _jspx_th_c_when_6.doStartTag();
+    if (_jspx_eval_c_when_6 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
         out.write("\t\t\t<svg xmlns='http://www.w3.org/2000/svg'\r\n");
@@ -969,34 +1110,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)'/>\r\n");
         out.write("                           </g>\r\n");
         out.write("\t\t\t</svg>\r\n");
-        out.write("                        ");
-        int evalDoAfterBody = _jspx_th_c_when_5.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_c_when_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_5);
-      return true;
-    }
-    _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_5);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_when_6(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:when
-    org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_6 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
-    _jspx_th_c_when_6.setPageContext(_jspx_page_context);
-    _jspx_th_c_when_6.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
-    _jspx_th_c_when_6.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tipoPesquisa eq 'raio'}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
-    int _jspx_eval_c_when_6 = _jspx_th_c_when_6.doStartTag();
-    if (_jspx_eval_c_when_6 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("\r\n");
-        out.write("                                    teste\r\n");
         out.write("                        ");
         int evalDoAfterBody = _jspx_th_c_when_6.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
