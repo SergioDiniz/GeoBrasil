@@ -12,5 +12,5 @@ function Info(evt){
 }
 
 function Redireciona(servlet, cidade, nome, estado, nomeEstado){  
-  location.href = servlet+"?"+cidade+"="+nome+"="+estado+"="+nomeEstado;  
+  location.href = servlet+"?"+cidade+"="+nome+"&"+estado+"="+nomeEstado+"&"+"click=municipio";  
 } 

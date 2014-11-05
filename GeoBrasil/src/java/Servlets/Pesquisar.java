@@ -56,7 +56,7 @@ public class Pesquisar extends HttpServlet {
                 try {
                     municipio = gerenciador.pesquisarMunicipio(campoPesquisa);
                     
-
+                    session.setAttribute("campoPesquisa", campoPesquisa);
                     session.setAttribute("geometria", municipio);
                     session.setAttribute("tipoPesquisa", tipoPesquisa);
                     
@@ -73,6 +73,7 @@ public class Pesquisar extends HttpServlet {
                 try {
                     estado = gerenciador.pesquisarEstado(campoPesquisa);
                     
+                    session.setAttribute("campoPesquisa", campoPesquisa);
                     session.setAttribute("geometria", estado);
                     session.setAttribute("tipoPesquisa", tipoPesquisa);
                     
@@ -89,6 +90,8 @@ public class Pesquisar extends HttpServlet {
                 try {
                     microrregiao = gerenciador.pesquisarMicrorregiao(campoPesquisa);
                     
+                    
+                    session.setAttribute("campoPesquisa", campoPesquisa);
                     session.setAttribute("geometria", microrregiao);
                     session.setAttribute("tipoPesquisa", tipoPesquisa);
                     
@@ -105,6 +108,7 @@ public class Pesquisar extends HttpServlet {
                 try {
                     mesorregiao = gerenciador.pesquisarMesorregiao(campoPesquisa);
                     
+                    session.setAttribute("campoPesquisa", campoPesquisa);
                     session.setAttribute("geometria", mesorregiao);
                     session.setAttribute("tipoPesquisa", tipoPesquisa);
                     
@@ -122,6 +126,7 @@ public class Pesquisar extends HttpServlet {
                 try {
                     regiao = gerenciador.pesquisarRegiao(campoPesquisa);
                     
+                    session.setAttribute("campoPesquisa", campoPesquisa);
                     session.setAttribute("geometria", regiao);
                     session.setAttribute("tipoPesquisa", tipoPesquisa);
                     
@@ -164,6 +169,7 @@ public class Pesquisar extends HttpServlet {
                 try {
                     zonac = gerenciador.pesquisarZonasClimatica(campoPesquisa);
                     
+                    session.setAttribute("campoPesquisa", campoPesquisa);
                     session.setAttribute("geometria", zonac);
                     session.setAttribute("tipoPesquisa", tipoPesquisa);
                     
@@ -181,6 +187,7 @@ public class Pesquisar extends HttpServlet {
                 try {
                     aero = gerenciador.pesquisarAeroportos(campoPesquisa);
                     
+                    session.setAttribute("campoPesquisa", campoPesquisa);
                     session.setAttribute("geometria", aero);
                     session.setAttribute("tipoPesquisa", tipoPesquisa);
                     

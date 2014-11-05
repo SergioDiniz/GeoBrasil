@@ -34,16 +34,33 @@
               request.setCharacterEncoding("UTF-8"); 
               String campoPesquisa = (String) session.getAttribute("campoPesquisa");
               String tipoPesquisa = (String) session.getAttribute("tipoPesquisa");
-              if (campoPesquisa != null && "raio".equals(tipoPesquisa)){
               Gerenciador gerenciador = new Gerenciador();
+              if (campoPesquisa != null && "raio".equals(tipoPesquisa)){
+              
               MunicipiosEmRaio municipios = new MunicipiosEmRaio();
               municipios = gerenciador.pesquisarMunicipiosEmUmRadio(campoPesquisa);
               session.setAttribute("raio", municipios);    
               }
               
+              
+              String click = (String) request.getParameter("click");
+              
+              if(click != null){
+                  String municpio = (String) request.getParameter("cidade");
+                  String estado = (String) request.getParameter("estado");
+                  String pesquisa = municpio + " - " + estado;
+                  session.setAttribute("pesquisa", pesquisa);
+                  Municipio municipio = new Municipio();
+                  municipio = gerenciador.pesquisarMunicipio(pesquisa);
+                  
+                  session.setAttribute("geometria", municipio);
+                  session.setAttribute("tipoPesquisa", "municipio");
+              }
+              
               session.setAttribute("campoPesquisa", campoPesquisa);
-               
+              
       %>
+     
         <!-- link interno para a seção inicial -->
        <a id="inicio"></a>
         <!-- Logo e Menu -->
@@ -143,7 +160,7 @@
                      
                          
                      
-                     <p class="sub-titulo">${campoPesquisa}:</p>
+                     
                      <br/>
                      <div class="geometria">
                         <?xml version='1.0' encoding='utf-8' ?>
@@ -151,6 +168,7 @@
 			'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-basic.dtd'>
                       <c:choose>
 			<c:when test="${tipoPesquisa eq 'municipio'}">
+                        <p class="sub-titulo">${geometria.nome}:</p>
 			<svg xmlns='http://www.w3.org/2000/svg'
 			     xmlns:xlink='http:www.w3.org/1999/xlink'
 			     width='400' height='400' viewBox='${geometria.viewBox}'>
@@ -158,7 +176,7 @@
 					
 			    <g id='grupo'>
 			       <path id='${geometria.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.0002' 
-                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Redireciona("Pesquisar", "cidade", "${geometria.nome}", "estado", "PB")' 
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' 
                                 d='${geometria.SVG}'/>
 			    </g>
 			</svg>
@@ -208,6 +226,7 @@
                         </c:when>
                         
 			<c:when test="${tipoPesquisa eq 'estado'}">
+                        <p class="sub-titulo">${geometria.nome}:</p>
 			<svg xmlns='http://www.w3.org/2000/svg'
 			     xmlns:xlink='http:www.w3.org/1999/xlink'
 			     width='800' height='800' viewBox='${geometria.viewBox}'>
@@ -219,13 +238,14 @@
                               
                                <c:forEach var="aux" items="${geometria.municipios}">
                                 <path id='${aux.nome}' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.001' 
-                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='${aux.SVG}'/>
+                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Redireciona("index.jsp", "cidade", "${aux.nome}", "estado", "${geometria.nome}")' d='${aux.SVG}'/>
                                </c:forEach>
                            </g>
 			</svg>
                         </c:when>
                         
 			<c:when test="${tipoPesquisa eq 'microrregiao'}">
+                        <p class="sub-titulo">${geometria.nome}:</p>
 			<svg xmlns='http://www.w3.org/2000/svg'
 			     xmlns:xlink='http:www.w3.org/1999/xlink'
 			     width='800' height='800' viewBox='${geometria.viewBox}'>
@@ -244,6 +264,7 @@
                         </c:when> 
                         
 			<c:when test="${tipoPesquisa eq 'mesorregiao'}">
+                        <p class="sub-titulo">${geometria.nome}:</p>
 			<svg xmlns='http://www.w3.org/2000/svg'
 			     xmlns:xlink='http:www.w3.org/1999/xlink'
 			     width='800' height='800' viewBox='${geometria.viewBox}'>
@@ -263,6 +284,7 @@
                         
                         
 			<c:when test="${tipoPesquisa eq 'mesorregiao'}">
+                        <p class="sub-titulo">${geometria.nome}:</p>
 			<svg xmlns='http://www.w3.org/2000/svg'
 			     xmlns:xlink='http:www.w3.org/1999/xlink'
 			     width='800' height='800' viewBox='${geometria.viewBox}'>
@@ -282,6 +304,7 @@
                         
                         
 			<c:when test="${tipoPesquisa eq 'regiao'}">
+                        <p class="sub-titulo">${geometria.nome}:</p>
 			<svg xmlns='http://www.w3.org/2000/svg'
 			     xmlns:xlink='http:www.w3.org/1999/xlink'
 			     width='800' height='800' viewBox='${geometria.viewBox}'>
@@ -300,6 +323,7 @@
                         </c:when>      
                         
 			<c:when test="${tipoPesquisa eq 'zclimaticas'}">
+                        <p class="sub-titulo">${geometria.nome}:</p>
 			<svg xmlns='http://www.w3.org/2000/svg'
 			     xmlns:xlink='http:www.w3.org/1999/xlink'
 			     width='800' height='800' viewBox='${geometria.pais.viewBox}'>
@@ -316,6 +340,7 @@
                         </c:when> 
                         
 			<c:when test="${tipoPesquisa eq 'aeroportos'}">
+                        <p class="sub-titulo">${geometria.nome}:</p>
 			<svg xmlns='http://www.w3.org/2000/svg'
 			     xmlns:xlink='http:www.w3.org/1999/xlink'
 			     width='800' height='800' viewBox='${geometria.estado.viewBox}'>
@@ -332,6 +357,7 @@
                         </c:when>                         
                         
 			<c:when test="${tipoPesquisa eq 'raio'}">
+                        <p class="sub-titulo">${campoPesquisa}:</p>
 			<svg xmlns='http://www.w3.org/2000/svg'
 			     xmlns:xlink='http:www.w3.org/1999/xlink'
 			     width='800' height='800' viewBox='${raio.estado.viewBox}'>

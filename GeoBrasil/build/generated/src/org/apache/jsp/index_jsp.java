@@ -99,15 +99,34 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
               request.setCharacterEncoding("UTF-8"); 
               String campoPesquisa = (String) session.getAttribute("campoPesquisa");
               String tipoPesquisa = (String) session.getAttribute("tipoPesquisa");
-              if (campoPesquisa != null && tipoPesquisa == "raio"){
               Gerenciador gerenciador = new Gerenciador();
+              if (campoPesquisa != null && "raio".equals(tipoPesquisa)){
+              
               MunicipiosEmRaio municipios = new MunicipiosEmRaio();
               municipios = gerenciador.pesquisarMunicipiosEmUmRadio(campoPesquisa);
               session.setAttribute("raio", municipios);    
               }
-               
+              
+              
+              String click = (String) request.getParameter("click");
+              
+              if(click != null){
+                  String municpio = (String) request.getParameter("cidade");
+                  String estado = (String) request.getParameter("estado");
+                  String pesquisa = municpio + " - " + estado;
+                  session.setAttribute("pesquisa", pesquisa);
+                  Municipio municipio = new Municipio();
+                  municipio = gerenciador.pesquisarMunicipio(pesquisa);
+                  
+                  session.setAttribute("geometria", municipio);
+                  session.setAttribute("tipoPesquisa", "municipio");
+              }
+              
+              session.setAttribute("campoPesquisa", campoPesquisa);
+              
       
       out.write("\r\n");
+      out.write("     \r\n");
       out.write("        <!-- link interno para a seção inicial -->\r\n");
       out.write("       <a id=\"inicio\"></a>\r\n");
       out.write("        <!-- Logo e Menu -->\r\n");
@@ -208,7 +227,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                         \r\n");
       out.write("                     \r\n");
       out.write("                     <p class=\"sub-titulo\">");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.nome}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${campoPesquisa}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write(":</p>\r\n");
       out.write("                     <br/>\r\n");
       out.write("                     <div class=\"geometria\">\r\n");
@@ -703,7 +722,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                                <path id='");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.nome}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("' fill='green' fill-opacity='0.2' stroke='red' stroke-width='0.001' \r\n");
-          out.write("                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Info(evt)' d='");
+          out.write("                                onmouseover='Destaca(evt)' onmouseout='Normal(evt)' onclick='Redireciona(\"index.jsp\", \"cidade\", \"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.nome}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\", \"estado\", \"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria.nome}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\")' d='");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${aux.SVG}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("'/>\r\n");
           out.write("                               ");
