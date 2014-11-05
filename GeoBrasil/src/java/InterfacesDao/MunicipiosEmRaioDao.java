@@ -52,7 +52,7 @@ public class MunicipiosEmRaioDao {
                 
                 muni.setNome(result.getString(1));
                 muni.setThe_geom(result.getString(2));
-                muni.setThe_geom(result.getString(3));
+                muni.setSVG(result.getString(3));
                 muni.setViewBox(new Gerenciador().getViewBoxMunicipio(municipio, estado));
                 
                 municipios.getMunicipios().add(muni);

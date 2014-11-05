@@ -16,8 +16,10 @@ public class MunicipiosEmRaio {
     
     private ArrayList<Municipio> municipios = new ArrayList();
     private Estado estado;
+    private String nome;
 
     public MunicipiosEmRaio() {
+        this.nome = "sergio";
     }
 
     public MunicipiosEmRaio(Estado estado) {

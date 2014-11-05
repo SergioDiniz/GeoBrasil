@@ -996,9 +996,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     if (_jspx_eval_c_when_6 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("                                   ");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${geometria}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("\r\n");
+        out.write("                                    teste\r\n");
         out.write("                        ");
         int evalDoAfterBody = _jspx_th_c_when_6.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)

@@ -12,6 +12,7 @@ import Classes.Mesorregiao;
 import Classes.Microrregiao;
 import Classes.Municipio;
 import Classes.MunicipiosEmRaio;
+import Classes.Regiao;
 import Classes.ZonasClimatica;
 import Gerenciador.Gerenciador;
 import java.io.IOException;
@@ -114,7 +115,25 @@ public class Pesquisar extends HttpServlet {
             
             
             
+            } else if("regiao".equals(tipoPesquisa)){
+                Regiao regiao = new Regiao();
+                
+                try {
+                    regiao = gerenciador.pesquisarRegiao(campoPesquisa);
+                    
+                    session.setAttribute("geometria", regiao);
+                    session.setAttribute("tipoPesquisa", tipoPesquisa);
+                    
+                    response.sendRedirect("index.jsp#mapa");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Pesquisar.class.getName()).log(Level.SEVERE, null, ex);
+                }
+           
+            
+            
+            
             } else if("raio".equals(tipoPesquisa)){
+                
                 PrintWriter out = response.getWriter();
                 MunicipiosEmRaio municipios = new MunicipiosEmRaio();
                 try {
@@ -127,8 +146,10 @@ public class Pesquisar extends HttpServlet {
                 } catch (SQLException ex) {
                     System.out.println(ex.getMessage());
                 }
-           
-            
+
+                
+                    //session.setAttribute("tipoPesquisa", tipoPesquisa);
+                    //response.sendRedirect("index.jsp#mapa");
             
             
             
