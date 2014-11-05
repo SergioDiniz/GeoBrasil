@@ -20,7 +20,7 @@
     <script src="js/bootstrap.js"></script>     
 
     <script src="js/scrips.js"></script>	 
-    <script src="js/function.js"></script>
+    <script src="js/funcoes.js"></script>
     <title>GeoBrasil</title>
 	<!--[if lt IE 9] >
 		<script src="js/html5shiv.js"></script>

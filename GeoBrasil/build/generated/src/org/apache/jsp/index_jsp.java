@@ -84,7 +84,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <script src=\"js/bootstrap.js\"></script>     \r\n");
       out.write("\r\n");
       out.write("    <script src=\"js/scrips.js\"></script>\t \r\n");
-      out.write("    <script src=\"js/function.js\"></script>\r\n");
+      out.write("    \r\n");
       out.write("    <title>GeoBrasil</title>\r\n");
       out.write("\t<!--[if lt IE 9] >\r\n");
       out.write("\t\t<script src=\"js/html5shiv.js\"></script>\r\n");
@@ -96,30 +96,17 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("      \r\n");
       out.write("      ");
  
-<<<<<<< HEAD
               request.setCharacterEncoding("UTF-8"); 
-              String campoPesquisa = (String) request.getAttribute("campoPesquisa");
-              if (campoPesquisa != null){
+              String campoPesquisa = (String) session.getAttribute("campoPesquisa");
+              String tipoPesquisa = (String) session.getAttribute("tipoPesquisa");
+              if (campoPesquisa != null && tipoPesquisa == "raio"){
               Gerenciador gerenciador = new Gerenciador();
               MunicipiosEmRaio municipios = new MunicipiosEmRaio();
               municipios = gerenciador.pesquisarMunicipiosEmUmRadio(campoPesquisa);
               session.setAttribute("raio", municipios);    
-              session.setAttribute("teste", "teste");    
-              
               }
-=======
-              Gerenciador gerenciador = new Gerenciador();
-              MunicipiosEmRaio municipios = new MunicipiosEmRaio();
-              municipios = gerenciador.pesquisarMunicipiosEmUmRadio("cajazeiras - pb - 30");
-              session.setAttribute("raio", municipios);
-
-
-
->>>>>>> 6230e009be6cf391ddb4bc1f0f353b63ea57b674
+               
       
-      out.write("\r\n");
-      out.write("       ");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${teste}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\r\n");
       out.write("        <!-- link interno para a seção inicial -->\r\n");
       out.write("       <a id=\"inicio\"></a>\r\n");
@@ -488,14 +475,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           return true;
         out.write("                         \r\n");
         out.write("                        \r\n");
-<<<<<<< HEAD
         out.write("\t\t\t");
         if (_jspx_meth_c_when_7((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
           return true;
         out.write("                         \r\n");
-=======
-        out.write("                      \r\n");
->>>>>>> 6230e009be6cf391ddb4bc1f0f353b63ea57b674
         out.write("                        \r\n");
         out.write("                      ");
         int evalDoAfterBody = _jspx_th_c_choose_0.doAfterBody();
