@@ -10,3 +10,7 @@ function Normal(evt){
 function Info(evt){
 	alert(evt.target.getAttribute("id"));
 }
+
+function Redireciona(servlet){  
+  location.href = servlet;  
+} 
