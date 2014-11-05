@@ -84,7 +84,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <script src=\"js/bootstrap.js\"></script>     \r\n");
       out.write("\r\n");
       out.write("    <script src=\"js/scrips.js\"></script>\t \r\n");
-      out.write("    <script src=\"js/function.js\"></script>\r\n");
+      out.write("    \r\n");
       out.write("    <title>GeoBrasil</title>\r\n");
       out.write("\t<!--[if lt IE 9] >\r\n");
       out.write("\t\t<script src=\"js/html5shiv.js\"></script>\r\n");

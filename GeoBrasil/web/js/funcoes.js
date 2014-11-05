@@ -1,3 +1,4 @@
+
 function Destaca(evt){
 	evt.target.setAttribute("fill", "red");
 }
