@@ -373,7 +373,11 @@
                                 </c:forEach>
                            </g>
 			</svg>
-                        </c:when>                         
+                        </c:when>   
+                        
+                        <c:when test="${tipoPesquisa eq 'ERRO'}">
+                            <p class="sub-titulo">Ops! não conseguimos encontrar oque você está procurando.</p>
+                        </c:when>
                         
                       </c:choose>
                      </div>

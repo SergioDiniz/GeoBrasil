@@ -72,7 +72,10 @@ public class Pesquisar extends HttpServlet {
                 
                 try {
                     estado = gerenciador.pesquisarEstado(campoPesquisa);
-                    
+                    if(estado == null){
+                        session.setAttribute("tipoPesquisa", "ERRO");
+                        response.sendRedirect("index.jsp#mapa");
+                    }
                     session.setAttribute("campoPesquisa", campoPesquisa);
                     session.setAttribute("geometria", estado);
                     session.setAttribute("tipoPesquisa", tipoPesquisa);
