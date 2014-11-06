@@ -308,3 +308,41 @@ border: solid 2px;
     padding-left: 650px;
     padding-top: 20px;
 }
+
+
+.tipo-pesquisa{
+    margin-left: 358px;
+    position: absolute;
+}
+
+.campo_de_pesquisa{
+    margin-left: 250px;
+}
+
+
+.previsaoDoTempo > table{
+     border: solid 1px;   
+}
+
+
+.previsaoDoTempo{
+    text-align: center;
+}
+
+.previsaoDoTempo td{
+    border: solid  20px;
+    border-color: #f7f7f7;
+}
+
+
+.previsaoDoTempo h1 {
+    color: #fa2727;
+    font-weight: bold;
+    margin-bottom: -20px;
+}
+
+.previsaoDoTempo h2 {
+    color: #2770fa;
+    font-weight: bold;
+    margin-bottom: -20px;
+}

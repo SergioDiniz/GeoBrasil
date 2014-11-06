@@ -45,7 +45,16 @@ Interação com o Mapa:
 - Se a representação gráfica da geometria for de um município, além do nome do município, deve ser apresentada a previsão do tempo para os próximos sete dias. Esta informação pode ser adquirida em: http://servicos.cptec.inpe.br/XML/cidade/7dias/-22.90/-47.06/previsaoLatLon.xml. 
 Maiores informações: http://servicos.cptec.inpe.br/XML/.
 
-
+Exemplos de Consultas:
+----------------------
+- Cidade: Cajazeiras - PB
+- Estado: PB
+- Microrregiao: Cajazeiras - PB
+- Mesorregiao: Sertão Paraibano - PB
+- Regiao: Nordeste
+- Municipios em um raio em km: Cajazeiras - PB - 30
+- Clima: Equatorial
+- Aeroporto: Salgado Filho
 
 
 
