@@ -486,6 +486,19 @@
                                 </tr>
                             </table>
                             
+                            <br>
+                            <p class="sub-titulo">Exempos de Consultas:</p>
+                            <ul>
+                                <li>Cidade: Cajazeiras - PB</li>
+                                <li>Estado: PB</li>
+                                <li>Microrregiao: Cajazeiras - PB</li>
+                                <li>Mesorregiao: Sertão Paraibano - PB</li>
+                                <li>Regiao: Nordeste</li>
+                                <li>Municipios em um raio em km: Cajazeiras - PB - 30</li>
+                                <li>Clima: Equatorial</li>
+                                <li>Aeroporto: Salgado Filho</li>
+                            </ul>
+                            
                         </div>
                     </div>
                 </div>
